@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, Sparkles } from "lucide-react";
 import { NORTH_STAR } from "@/content/course";
 import { LineageTimeline } from "@/components/lineage-timeline";
+import { DevelopmentStages } from "@/components/development-stages";
 import { ConceptGrid } from "@/components/concept-grid";
 import { WorkflowDiagram } from "@/components/workflow-diagram";
 import { QuoteBlock, Badge, Card } from "@/components/ui/layout";
@@ -75,6 +76,11 @@ export default function HomePage() {
       {/* Lineage */}
       <div className="animate-fade-up-delay-2">
         <LineageTimeline />
+      </div>
+
+      {/* Development stages */}
+      <div className="animate-fade-up-delay-2">
+        <DevelopmentStages />
       </div>
 
       {/* Concepts */}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { practicalTakeaways, keyTerms, NORTH_STAR } from "@/content/course";
 import { LineageTimeline } from "@/components/lineage-timeline";
+import { DevelopmentStages } from "@/components/development-stages";
 import { WorkflowDiagram } from "@/components/workflow-diagram";
 import { PageHeader, QuoteBlock, Badge, Card } from "@/components/ui/layout";
 
@@ -28,6 +29,8 @@ export default function SectionOnePage() {
       </section>
 
       <LineageTimeline />
+
+      <DevelopmentStages />
 
       <section className="space-y-6">
         <h2 className="text-xl font-semibold">Core Concepts</h2>

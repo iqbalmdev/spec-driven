@@ -1,4 +1,6 @@
 import { WorkflowDiagram } from "@/components/workflow-diagram";
+import { DevelopmentStages } from "@/components/development-stages";
+import { developmentStages } from "@/content/course";
 import { PageHeader, Card } from "@/components/ui/layout";
 
 const steps = [
@@ -37,7 +39,26 @@ export default function WorkflowPage() {
         <WorkflowDiagram interactive />
       </Card>
 
+      <DevelopmentStages />
+
       <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Stage Reference</h2>
+        {developmentStages.map((s) => (
+          <Card key={s.id} className="flex gap-4">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
+              {s.stage}
+            </span>
+            <div>
+              <h3 className="font-semibold">{s.name}</h3>
+              <p className="text-xs text-accent mt-0.5">{s.question}</p>
+              <p className="mt-1 text-sm text-muted leading-relaxed">{s.description}</p>
+            </div>
+          </Card>
+        ))}
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Shaping Workflow</h2>
         {steps.map((s, i) => (
           <Card key={s.step} className="flex gap-4">
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">

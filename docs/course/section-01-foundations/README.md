@@ -343,14 +343,98 @@ So that [outcome/benefit].
          │ yes
          ▼
 ┌─────────────────┐
-│  Generate tasks │  Plans, prompts, implementation
-│  & implement    │
+│ Development     │  Specification → Plan → Tasks → Code → Verify
+│    Stages       │
 └─────────────────┘
 ```
 
 ---
 
+## Development Stages
 
+Once the Clarification Gate passes, SDD follows a strict pipeline. Each stage answers one question and produces one artifact before the next stage begins.
+
+```
+Specification  →  Plan  →  Tasks  →  Code  →  Verify
+```
+
+| Stage | Question | Artifact | Key output |
+|-------|----------|----------|------------|
+| **1. Specification** | What must be built? | `requirements.md` · shaped spec | User stories, acceptance criteria, zero open items |
+| **2. Plan** | How will we build it? | Project plan · architecture notes | Milestones, dependencies, technical approach |
+| **3. Tasks** | What are the concrete steps? | Task list · AI prompts | Ordered, checkbox-ready work items linked to spec |
+| **4. Code** | Build it — does it match the spec? | Source code in repo | Implementation traceable to tasks and stories |
+| **5. Verify** | Does it match what the spec says? | Tests · acceptance checks | All criteria passed — feature truly done |
+
+### Stage 1 — Specification
+
+Capture intent **before** any implementation.
+
+- Run `shape-spec` to clarify requirements
+- Write user stories with success criteria
+- Define acceptance criteria and data contracts
+- Pass the Clarification Gate (zero open items)
+
+**Anti-pattern:** Skipping straight to AI prompts — vibe-coding without a spec.
+
+---
+
+### Stage 2 — Plan
+
+Translate the approved spec into a structured plan.
+
+- Define milestones and sequencing
+- Identify dependencies and risks
+- Choose technical approach aligned to spec
+- Keep the plan in the repo — not in chat
+
+**Anti-pattern:** Planning in your head or in a thread that disappears.
+
+---
+
+### Stage 3 — Tasks
+
+Break the plan into small, actionable, ordered tasks.
+
+- Each task traces to a user story or acceptance criterion
+- Tasks are executable enough for AI or a developer to run
+- Generate AI prompts from the spec — not from guesses
+
+**Anti-pattern:** Vague tasks like "build the feature" with no spec link.
+
+---
+
+### Stage 4 — Code
+
+Implement against the spec and tasks.
+
+- Code is the **output** of intent, not the source of truth
+- Commit to version control with traceability to tasks
+- When code and spec diverge — fix the code
+
+**Anti-pattern:** Accepting whatever AI generates and retro-fitting the spec.
+
+---
+
+### Stage 5 — Verify
+
+Validate against the spec — not against what the code happens to do.
+
+- Run all acceptance criteria
+- Confirm behaviour matches spec intent
+- Mark complete only when criteria pass
+
+**Anti-pattern:** "Looks good to me" without running criteria.
+
+---
+
+### Stage rules
+
+1. **Never skip stages.** Spec before plan. Plan before tasks. Tasks before code.
+2. **Each stage has an artifact.** If it is not written down in the repo, the stage is not done.
+3. **Verify closes the loop.** A feature is not complete until the spec says it is.
+
+---
 
 ## Key Terms
 
@@ -368,6 +452,7 @@ So that [outcome/benefit].
 | **Clarification Gate** | Blocker requiring zero open items in requirements before implementation                               |
 | **Executable intent**  | Specs detailed enough to auto-generate tasks, plans, and prompts                                      |
 | **Living document**    | A spec that evolves with the project, tracked in version control                                      |
+| **Development stages** | Specification → Plan → Tasks → Code → Verify — ordered pipeline from intent to verified software      |
 
 
 ---
@@ -383,6 +468,7 @@ So that [outcome/benefit].
 5. **Open items are stop signs.** Resolve them before coding.
 6. **Write for execution.** If AI cannot generate a task from your spec, rewrite it.
 7. **Stories describe goals.** Let implementation emerge from clear intent.
+8. **Follow the stages.** Specification → Plan → Tasks → Code → Verify — never skip ahead.
 
 ---
 

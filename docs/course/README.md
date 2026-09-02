@@ -26,6 +26,7 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 | **Clarification Gate** | Zero open items in `requirements.md` before implementation |
 | **Version-controlled specs** | Requirements live in the repo, not in chat |
 | **Executable intent** | Specs generate tasks, plans, and AI prompts |
+| **Development stages** | Specification → Plan → Tasks → Code → Verify |
 | **User stories** | Goals over implementation; success criteria define "done" |
 
 → [Full Section 1 docs](./section-01-foundations/README.md)

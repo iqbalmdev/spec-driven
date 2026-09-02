@@ -131,6 +131,84 @@ export const coreConcepts = [
   },
 ] as const;
 
+export const developmentStages = [
+  {
+    id: "specification",
+    stage: 1,
+    name: "Specification",
+    question: "What must be built?",
+    artifact: "requirements.md · shaped spec",
+    description:
+      "Capture intent before any implementation. Use shape-spec to clarify requirements, write user stories, define acceptance criteria, and resolve all open items through the Clarification Gate.",
+    outputs: [
+      "User stories with success criteria",
+      "Acceptance criteria and data contracts",
+      "Zero open items (Clarification Gate passed)",
+    ],
+    antiPattern: "Skipping straight to prompts — vibe-coding without a spec",
+  },
+  {
+    id: "plan",
+    stage: 2,
+    name: "Plan",
+    question: "How will we build it?",
+    artifact: "Project plan · architecture notes",
+    description:
+      "Translate the approved spec into a structured plan. Define milestones, dependencies, technical approach, and the order of work — still without writing feature code.",
+    outputs: [
+      "Milestones and sequencing",
+      "Dependencies and risks identified",
+      "Technical approach aligned to spec",
+    ],
+    antiPattern: "Planning in your head or in chat — not version-controlled",
+  },
+  {
+    id: "tasks",
+    stage: 3,
+    name: "Tasks",
+    question: "What are the concrete steps?",
+    artifact: "Task list · AI prompts",
+    description:
+      "Break the plan into small, actionable, ordered tasks. Each task should trace back to a user story or acceptance criterion — executable enough for AI or a developer to pick up and run.",
+    outputs: [
+      "Ordered, checkbox-ready task list",
+      "AI prompts derived from spec (not guesses)",
+      "Each task maps to acceptance criteria",
+    ],
+    antiPattern: "Vague tasks like 'build the feature' with no spec link",
+  },
+  {
+    id: "code",
+    stage: 4,
+    name: "Code",
+    question: "Build it — does it match the spec?",
+    artifact: "Source code in repo",
+    description:
+      "Implement against the spec and tasks — not against vibes. Code is the output of clear intent, not the source of truth. When code and spec diverge, fix the code.",
+    outputs: [
+      "Implementation committed to version control",
+      "Each change traceable to a task and story",
+      "No undocumented behaviour",
+    ],
+    antiPattern: "Accepting whatever AI generates and retro-fitting the spec",
+  },
+  {
+    id: "verify",
+    stage: 5,
+    name: "Verify",
+    question: "Does it match what the spec says should happen?",
+    artifact: "Tests · acceptance checks",
+    description:
+      "Validate against the spec — not against what the code happens to do. Run acceptance criteria, behaviour checks, and review open items are still resolved.",
+    outputs: [
+      "All acceptance criteria checked",
+      "Behaviour matches spec intent",
+      "Feature marked complete only when criteria pass",
+    ],
+    antiPattern: "'Looks good to me' without running criteria",
+  },
+] as const;
+
 export const workflowSteps = [
   { id: "idea", label: "Feature idea", description: "A need emerges" },
   { id: "shape", label: "shape-spec", description: "Structured conversation — clarify, don't assume" },
@@ -151,6 +229,7 @@ export const keyTerms = [
   { term: "Clarification Gate", definition: "Blocker requiring zero open items before implementation" },
   { term: "Executable intent", definition: "Specs detailed enough to auto-generate tasks, plans, and prompts" },
   { term: "Living document", definition: "A spec that evolves with the project, tracked in version control" },
+  { term: "Development stages", definition: "Specification → Plan → Tasks → Code → Verify — the ordered pipeline from intent to verified software" },
 ] as const;
 
 export const practicalTakeaways = [
@@ -161,6 +240,7 @@ export const practicalTakeaways = [
   "Open items are stop signs. Resolve them before coding.",
   "Write for execution. If AI cannot generate a task from your spec, rewrite it.",
   "Stories describe goals. Let implementation emerge from clear intent.",
+  "Follow the stages. Specification → Plan → Tasks → Code → Verify — never skip ahead.",
 ] as const;
 
 export const openItems = [
