@@ -4,7 +4,9 @@ A version-controlled knowledge base and **interactive showcase app** for learnin
 
 ## Live App
 
-Built with Next.js — deploy on [Vercel](https://vercel.com).
+🌐 **Production:** [https://spec-driven-two.vercel.app](https://spec-driven-two.vercel.app)
+
+📦 **GitHub:** [https://github.com/iqbalmdev/spec-driven](https://github.com/iqbalmdev/spec-driven)
 
 ## Quick Start
 
