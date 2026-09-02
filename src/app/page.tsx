@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="flex flex-wrap gap-2 mb-6">
           <Badge variant="accent">
             <Sparkles className="inline h-3 w-3 mr-1 -mt-0.5" />
-            Sections 1 & 2 live
+            Sections 1–3 live
           </Badge>
           <Badge>Living spec showcase</Badge>
         </div>

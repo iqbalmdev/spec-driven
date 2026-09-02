@@ -12,7 +12,8 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 |---|-------|--------|--------|
 | 1 | Foundations — From Vibe-Coding to Structured Specs | [section-01-foundations](./section-01-foundations/) | ✅ Done |
 | 2 | Task Implementation — From Spec to Tasks | [section-02-task-implementation](./section-02-task-implementation/) | ✅ Done |
-| 3 | _TBD_ | — | ⏳ Pending |
+| 3 | Code Implementation — From Tasks to Verified Code | [section-03-implementation](./section-03-implementation/) | ✅ Done |
+| 4 | _TBD_ | — | ⏳ Pending |
 
 ---
 
@@ -31,6 +32,7 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 | **/create-tasks** | Converts clarified specs into atomic tasks.md |
 | **Risk planning matrix** | What can go wrong · detection · mitigation (Plan stage) |
 | **Atomic decomposition** | Smallest verifiable units — linked to requirements |
+| **/implement** | Execute one task at a time — verify before advancing |
 | **User stories** | Goals over implementation; success criteria define "done" |
 
 → [Full Section 1 docs](./section-01-foundations/README.md)

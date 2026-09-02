@@ -326,6 +326,16 @@ export const courseSections = [
     description:
       "Translate clarified specs into actionable tasks — /create-tasks, atomic decomposition, tasks.md structure with dependencies, requirement links, and verification steps.",
   },
+  {
+    id: "section-03",
+    number: 3,
+    slug: "section-03",
+    title: "Code Implementation",
+    subtitle: "From Tasks to Verified Code",
+    status: "complete" as const,
+    description:
+      "Execute tasks in dependency order via /implement — spec-aligned code, per-task verification, and feature sign-off against acceptance criteria.",
+  },
 ] as const;
 
 export const shapeSpecPhases = [

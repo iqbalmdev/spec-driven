@@ -34,6 +34,7 @@ Spec-driven/
 |---------|-------|--------|
 | 1 | Foundations — From Vibe-Coding to Structured Specs | ✅ Documented + App |
 | 2 | Task Implementation — From Spec to Tasks | ✅ Documented + App |
+| 3 | Code Implementation — From Tasks to Verified Code | ✅ Documented + App |
 
 ## Key Concepts
 
@@ -50,4 +51,5 @@ Spec-driven/
 
 - [Section 1](./docs/course/section-01-foundations/README.md)
 - [Section 2](./docs/course/section-02-task-implementation/README.md)
+- [Section 3](./docs/course/section-03-implementation/README.md)
 - [requirements.md](./requirements.md)
