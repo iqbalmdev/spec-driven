@@ -118,12 +118,37 @@ export const messagingExampleTasks = [
   },
 ] as const;
 
+/** Risk planning matrix — part of the Plan stage before /create-tasks */
+export const riskManagementExample = {
+  title: "Risk Planning Matrix",
+  description:
+    "During the Plan stage, identify what can go wrong, how to detect it, and how to mitigate — before tasks become code.",
+  rows: [
+    {
+      risk: "Database failure",
+      detection: "Metrics / Alerts",
+      mitigation: "Rollback migration",
+    },
+    {
+      risk: "Latency spike",
+      detection: "Monitoring signals",
+      mitigation: "Disable via flag",
+    },
+    {
+      risk: "API misuse",
+      detection: "Logs",
+      mitigation: "Rate limit",
+    },
+  ],
+} as const;
+
 export const section02Takeaways = [
   "Gate before tasks. Never /create-tasks on an unclear spec.",
   "Atomic wins. Smallest verifiable unit — not 'build the feature.'",
   "Trace everything. Every task links to a requirement ID.",
   "Verify each task. Checkboxes, not vibes.",
   "Dependency order matters. Foundation before logic before tests.",
+  "Plan for failure. Document risks, detection signals, and mitigations before coding.",
   "tasks.md lives in the repo. Version-controlled like requirements.md.",
 ] as const;
 

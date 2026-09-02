@@ -248,6 +248,25 @@ Task 4: Unit tests
 
 ---
 
+## Example — Risk Planning Matrix
+
+During the **Plan** stage — before or alongside `/create-tasks` — document what can go wrong, how you will detect it, and how you will mitigate it. This keeps risks out of vibe-coded surprises.
+
+| What can go wrong? | How do we detect it? | Mitigation Strategy |
+|--------------------|----------------------|---------------------|
+| Database failure | Metrics / Alerts | Rollback migration |
+| Latency spike | Monitoring signals | Disable via flag |
+| API misuse | Logs | Rate limit |
+
+**Why this belongs in Section 2:** Task implementation is not just breaking work into chunks — it is planning for failure modes that affect those tasks. A database migration task (Task 1 in the messaging example) should reference rollback strategy before code is written.
+
+**When to create:**
+- During Plan stage, after spec is clarified
+- Before implementing infrastructure or API tasks
+- Commit alongside `tasks.md` in the repo
+
+---
+
 ## Practical Takeaways
 
 1. **Gate before tasks.** Never `/create-tasks` on an unclear spec.
@@ -255,7 +274,8 @@ Task 4: Unit tests
 3. **Trace everything.** Every task links to a requirement ID.
 4. **Verify each task.** Checkboxes, not vibes.
 5. **Dependency order matters.** Foundation before logic before tests.
-6. **tasks.md lives in the repo.** Version-controlled like requirements.md.
+6. **Plan for failure.** Document risks, detection, and mitigations before coding.
+7. **tasks.md lives in the repo.** Version-controlled like requirements.md.
 
 ---
 
@@ -269,6 +289,7 @@ Task 4: Unit tests
 | **tasks.md** | Version-controlled task file with dependencies, requirement links, and verification |
 | **Traceability** | Every task maps back to a specific requirement |
 | **Verification steps** | Objective checkboxes that define task completion |
+| **Risk planning matrix** | What can go wrong, detection signals, and mitigation — documented during Plan stage |
 
 ---
 

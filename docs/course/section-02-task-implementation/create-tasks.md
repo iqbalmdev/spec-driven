@@ -56,6 +56,14 @@ Foundation (schemas, types)
 
 Tasks that depend on others must list their dependencies explicitly.
 
+**Plan for risks:** Document a risk matrix — what can go wrong, how to detect it, mitigation strategy — especially for database, API, and infrastructure tasks.
+
+| What can go wrong? | How do we detect it? | Mitigation Strategy |
+|--------------------|----------------------|---------------------|
+| Database failure | Metrics / Alerts | Rollback migration |
+| Latency spike | Monitoring signals | Disable via flag |
+| API misuse | Logs | Rate limit |
+
 ### Step 5 — Link to requirements
 
 Every task gets a **Requirement** field:

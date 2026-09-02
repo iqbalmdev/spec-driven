@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createTasksSteps } from "@/content/section-02";
+import { RiskMatrix } from "@/components/risk-matrix";
 import { SectionPager } from "@/components/course-nav";
 import { PageHeader, Card } from "@/components/ui/layout";
 
@@ -62,6 +63,8 @@ export default function CreateTasksPage() {
           </ul>
         </Card>
       </section>
+
+      <RiskMatrix />
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Anti-Patterns</h2>

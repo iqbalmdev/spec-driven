@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { section02Concepts, section02Takeaways, messagingExampleSpec } from "@/content/section-02";
 import { TaskDecompositionDemo } from "@/components/task-decomposition";
+import { RiskMatrix } from "@/components/risk-matrix";
 import { SectionPager } from "@/components/course-nav";
 import { PageHeader, QuoteBlock, Badge, Card } from "@/components/ui/layout";
 import { ArrowRight, Lock } from "lucide-react";
@@ -74,6 +75,8 @@ export default function SectionTwoPage() {
       </section>
 
       <TaskDecompositionDemo />
+
+      <RiskMatrix />
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Practical Takeaways</h2>

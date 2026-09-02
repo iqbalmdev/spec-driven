@@ -29,6 +29,7 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 | **Executable intent** | Specs generate tasks, plans, and AI prompts |
 | **Development stages** | Specification → Plan → Tasks → Code → Verify |
 | **/create-tasks** | Converts clarified specs into atomic tasks.md |
+| **Risk planning matrix** | What can go wrong · detection · mitigation (Plan stage) |
 | **Atomic decomposition** | Smallest verifiable units — linked to requirements |
 | **User stories** | Goals over implementation; success criteria define "done" |
 
