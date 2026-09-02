@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createTasksSteps } from "@/content/section-02";
+import { SectionPager } from "@/components/course-nav";
 import { PageHeader, Card } from "@/components/ui/layout";
 
 const antiPatterns = [
@@ -92,6 +93,8 @@ export default function CreateTasksPage() {
           View tasks.md example →
         </Link>
       </Card>
+
+      <SectionPager slug="section-02" />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { courseSections } from "@/content/course";
+import { getSectionHref } from "@/lib/course-nav";
 import { PageHeader, Badge, Card } from "@/components/ui/layout";
 
 export default function CoursePage() {
@@ -14,7 +15,7 @@ export default function CoursePage() {
 
       <div className="space-y-4">
         {courseSections.map((section) => (
-          <Link key={section.id} href={`/course/${section.slug}`} className="group block">
+          <Link key={section.id} href={getSectionHref(section.slug)} className="group block">
             <Card hover className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="space-y-2">
                 <div className="flex flex-wrap items-center gap-2">

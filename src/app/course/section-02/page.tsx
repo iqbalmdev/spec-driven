@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { section02Concepts, section02Takeaways, messagingExampleSpec } from "@/content/section-02";
 import { TaskDecompositionDemo } from "@/components/task-decomposition";
+import { SectionPager } from "@/components/course-nav";
 import { PageHeader, QuoteBlock, Badge, Card } from "@/components/ui/layout";
 import { ArrowRight, Lock } from "lucide-react";
 
@@ -104,6 +105,8 @@ export default function SectionTwoPage() {
           </Link>
         </Card>
       </div>
+
+      <SectionPager slug="section-02" />
     </div>
   );
 }

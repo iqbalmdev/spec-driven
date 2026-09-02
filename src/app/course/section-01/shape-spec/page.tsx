@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { shapeSpecPhases } from "@/content/course";
+import { SectionPager } from "@/components/course-nav";
 import { PageHeader, Badge, Card } from "@/components/ui/layout";
 
 const checklist = [
@@ -100,6 +101,8 @@ export default function ShapeSpecPage() {
           Open requirements.md →
         </Link>
       </Card>
+
+      <SectionPager slug="section-01" />
     </div>
   );
 }

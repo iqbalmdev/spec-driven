@@ -1,49 +1,7 @@
 import Link from "next/link";
-import { FileText, GitBranch, Layers } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { href: "/course", label: "Course", icon: Layers },
-  { href: "/requirements", label: "Requirements", icon: FileText },
-  { href: "/workflow", label: "Workflow", icon: GitBranch },
-  { href: "/templates", label: "Templates", icon: FileText },
-];
-
-export function Header() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="group flex items-center gap-2.5">
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/10 text-xs font-semibold text-accent ring-1 ring-accent/20">
-            SD
-          </span>
-          <span className="text-sm font-medium tracking-tight text-foreground group-hover:text-accent transition-colors">
-            Spec-Driven
-          </span>
-        </Link>
-
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
-          {navItems.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className="rounded-md px-3 py-1.5 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-
-        <Link
-          href="/course/section-01"
-          className="rounded-md bg-foreground px-3 py-1.5 text-xs font-medium text-background transition-opacity hover:opacity-90 sm:text-sm"
-        >
-          Start Section 1
-        </Link>
-      </div>
-    </header>
-  );
-}
+export { HeaderNav as Header } from "@/components/course-nav";
 
 export function Footer() {
   return (

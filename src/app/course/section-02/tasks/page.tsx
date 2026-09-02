@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { tasksMdStructure, messagingExampleTasks } from "@/content/section-02";
 import { TaskDecompositionDemo } from "@/components/task-decomposition";
+import { SectionPager } from "@/components/course-nav";
 import { PageHeader, Badge, Card } from "@/components/ui/layout";
 
 export default function TasksMdPage() {
@@ -73,6 +74,8 @@ export default function TasksMdPage() {
           View all templates →
         </Link>
       </Card>
+
+      <SectionPager slug="section-02" />
     </div>
   );
 }

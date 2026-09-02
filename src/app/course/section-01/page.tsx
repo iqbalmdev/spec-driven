@@ -3,6 +3,7 @@ import { practicalTakeaways, keyTerms, NORTH_STAR } from "@/content/course";
 import { LineageTimeline } from "@/components/lineage-timeline";
 import { DevelopmentStages } from "@/components/development-stages";
 import { WorkflowDiagram } from "@/components/workflow-diagram";
+import { SectionPager } from "@/components/course-nav";
 import { PageHeader, QuoteBlock, Badge, Card } from "@/components/ui/layout";
 
 export default function SectionOnePage() {
@@ -141,6 +142,8 @@ export default function SectionOnePage() {
           Open shape-spec →
         </Link>
       </Card>
+
+      <SectionPager slug="section-01" />
     </div>
   );
 }
