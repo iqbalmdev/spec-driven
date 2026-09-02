@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="flex flex-wrap gap-2 mb-6">
           <Badge variant="accent">
             <Sparkles className="inline h-3 w-3 mr-1 -mt-0.5" />
-            Section 1 — Foundations
+            Sections 1 & 2 live
           </Badge>
           <Badge>Living spec showcase</Badge>
         </div>
@@ -39,6 +39,13 @@ export default function HomePage() {
           >
             <BookOpen className="h-4 w-4" />
             Explore Section 1
+          </Link>
+          <Link
+            href="/course/section-02"
+            className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-5 py-2.5 text-sm font-medium transition-colors hover:bg-surface-elevated"
+          >
+            Section 2 — Tasks
+            <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/requirements"

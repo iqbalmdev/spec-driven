@@ -316,6 +316,16 @@ export const courseSections = [
     description:
       "The mindset shift from vibe-coding to AI engineering — shape-spec, Clarification Gate, executable intent, and the historical lineage from SDLC to SDD.",
   },
+  {
+    id: "section-02",
+    number: 2,
+    slug: "section-02",
+    title: "Task Implementation",
+    subtitle: "Specification Plan — From Spec to Tasks",
+    status: "complete" as const,
+    description:
+      "Translate clarified specs into actionable tasks — /create-tasks, atomic decomposition, tasks.md structure with dependencies, requirement links, and verification steps.",
+  },
 ] as const;
 
 export const shapeSpecPhases = [

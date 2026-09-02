@@ -37,7 +37,7 @@ export default function CoursePage() {
         ))}
 
         <Card className="border-dashed opacity-60">
-          <p className="text-sm text-muted">Section 2 — coming as the course progresses.</p>
+          <p className="text-sm text-muted">Section 3 — coming as the course progresses.</p>
         </Card>
       </div>
     </div>

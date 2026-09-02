@@ -11,7 +11,8 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 | # | Title | Folder | Status |
 |---|-------|--------|--------|
 | 1 | Foundations — From Vibe-Coding to Structured Specs | [section-01-foundations](./section-01-foundations/) | ✅ Done |
-| 2 | _TBD_ | — | ⏳ Pending |
+| 2 | Task Implementation — From Spec to Tasks | [section-02-task-implementation](./section-02-task-implementation/) | ✅ Done |
+| 3 | _TBD_ | — | ⏳ Pending |
 
 ---
 
@@ -27,6 +28,8 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 | **Version-controlled specs** | Requirements live in the repo, not in chat |
 | **Executable intent** | Specs generate tasks, plans, and AI prompts |
 | **Development stages** | Specification → Plan → Tasks → Code → Verify |
+| **/create-tasks** | Converts clarified specs into atomic tasks.md |
+| **Atomic decomposition** | Smallest verifiable units — linked to requirements |
 | **User stories** | Goals over implementation; success criteria define "done" |
 
 → [Full Section 1 docs](./section-01-foundations/README.md)

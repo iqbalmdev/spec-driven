@@ -54,6 +54,23 @@ export default function TemplatesPage() {
       </section>
 
       <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Tasks (Section 2)</h2>
+        <p className="text-sm text-muted">Atomic tasks with dependency order, requirement links, and verification — after Clarification Gate passes.</p>
+        <Card className="overflow-x-auto">
+          <pre className="text-xs font-mono leading-relaxed text-muted whitespace-pre-wrap">{`### Task 1: [Title]
+
+| Field | Value |
+|-------|-------|
+| **Requirement** | REQ-XXX — [title] |
+| **Depends on** | — or Task N |
+| **Description** | [Atomic unit of work] |
+
+**Verification:**
+- [ ] [Objective criterion]`}</pre>
+        </Card>
+      </section>
+
+      <section className="space-y-4">
         <h2 className="text-xl font-semibold">Guidelines</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {[
@@ -71,8 +88,9 @@ export default function TemplatesPage() {
 
       <Card className="text-sm text-muted">
         Full templates also live in the repo at{" "}
-        <code className="font-mono text-foreground">templates/user-story.md</code> and{" "}
-        <code className="font-mono text-foreground">templates/requirements.md</code>.
+        <code className="font-mono text-foreground">templates/user-story.md</code>,{" "}
+        <code className="font-mono text-foreground">templates/requirements.md</code>, and{" "}
+        <code className="font-mono text-foreground">templates/tasks.md</code>.
       </Card>
     </div>
   );

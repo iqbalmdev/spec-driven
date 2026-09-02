@@ -33,6 +33,7 @@ Spec-driven/
 | Section | Title | Status |
 |---------|-------|--------|
 | 1 | Foundations — From Vibe-Coding to Structured Specs | ✅ Documented + App |
+| 2 | Task Implementation — From Spec to Tasks | ✅ Documented + App |
 
 ## Key Concepts
 
@@ -40,10 +41,13 @@ Spec-driven/
 
 - **shape-spec** — Structured conversations before code
 - **Clarification Gate** — Zero open items in `requirements.md`
+- **/create-tasks** — Clarified spec → atomic tasks.md
+- **Atomic decomposition** — Smallest verifiable units linked to requirements
 - **Executable intent** — Specs generate tasks, plans, and AI prompts
 - **Historical lineage** — SDLC → PRDs → TDD → BDD → SDD
 
 ## Docs
 
 - [Section 1](./docs/course/section-01-foundations/README.md)
+- [Section 2](./docs/course/section-02-task-implementation/README.md)
 - [requirements.md](./requirements.md)
