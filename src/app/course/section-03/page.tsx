@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { section03Concepts, section03Takeaways, featureCompletionCriteria } from "@/content/section-03";
 import { TaskImplementationDemo } from "@/components/task-implementation-demo";
+import { ProjectConstitution } from "@/components/project-constitution";
 import { SectionPager } from "@/components/course-nav";
 import { PageHeader, QuoteBlock, Badge, Card } from "@/components/ui/layout";
 import { ArrowRight, Lock } from "lucide-react";
@@ -43,6 +44,8 @@ export default function SectionThreePage() {
           </div>
         </div>
       </Card>
+
+      <ProjectConstitution />
 
       <section className="space-y-6">
         <h2 className="text-xl font-semibold">Key Concepts</h2>

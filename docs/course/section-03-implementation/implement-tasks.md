@@ -49,7 +49,13 @@ Implement Task 2 from tasks.md:
 
 ### Step 4 — Write code
 
-Implement the minimum code to satisfy the task and its requirement. Commit with traceability:
+Implement the minimum code to satisfy the task and its requirement. Apply the **Project Constitution**:
+
+| Always Do | Ask First | Never Do |
+|-----------|-----------|----------|
+| Follow naming · Keep PRs small | Change schema · Refactor core modules | Bypass auth checks · Log sensitive data |
+
+Commit with traceability:
 
 ```
 feat(messaging): implement send message (Task 2, REQ-001)

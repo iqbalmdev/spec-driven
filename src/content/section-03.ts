@@ -1,3 +1,39 @@
+/** Project Constitution — rules that govern every implementation task */
+export const projectConstitution = {
+  title: "Project Constitution",
+  description:
+    "Non-negotiable rules for implementation. Follow these on every task — Always Do, Ask First, Never Do.",
+  columns: [
+    {
+      id: "always-do",
+      title: "Always Do",
+      tone: "success" as const,
+      items: [
+        { rule: "Follow naming", detail: "Use established naming conventions for variables, functions, files, and APIs." },
+        { rule: "Keep PRs small", detail: "Ship focused pull requests that are easy to review and map to a single task." },
+      ],
+    },
+    {
+      id: "ask-first",
+      title: "Ask First",
+      tone: "warning" as const,
+      items: [
+        { rule: "Change schema", detail: "Discuss database or data-structure changes before implementing." },
+        { rule: "Refactor core modules", detail: "Get alignment before changing foundational or shared modules." },
+      ],
+    },
+    {
+      id: "never-do",
+      title: "Never Do",
+      tone: "danger" as const,
+      items: [
+        { rule: "Bypass auth checks", detail: "Never skip authentication or authorization — even in local or temporary code." },
+        { rule: "Log sensitive data", detail: "Never log passwords, tokens, PII, or secrets into system logs." },
+      ],
+    },
+  ],
+} as const;
+
 export const section03Concepts = [
   {
     id: "task-ordered",
@@ -99,6 +135,7 @@ export const messagingImplementationTasks = [
 ] as const;
 
 export const section03Takeaways = [
+  "Follow the Project Constitution. Always Do · Ask First · Never Do — on every task.",
   "One task at a time. Dependency order is not a suggestion.",
   "Verify before advancing. Failed verification blocks the next task.",
   "Spec over code. Fix code when it diverges from requirements.",

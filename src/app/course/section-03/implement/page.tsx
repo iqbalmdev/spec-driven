@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { implementWorkflowSteps, implementationAntiPatterns } from "@/content/section-03";
+import { ProjectConstitution } from "@/components/project-constitution";
 import { SectionPager } from "@/components/course-nav";
 import { PageHeader, Card } from "@/components/ui/layout";
 
@@ -18,6 +19,8 @@ export default function ImplementPage() {
           Never prompt AI with &quot;build the whole feature.&quot; Always: &quot;Implement Task N from tasks.md, Requirement REQ-XXX.&quot;
         </p>
       </Card>
+
+      <ProjectConstitution />
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Workflow</h2>

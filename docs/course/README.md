@@ -33,6 +33,7 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 | **Risk planning matrix** | What can go wrong · detection · mitigation (Plan stage) |
 | **Atomic decomposition** | Smallest verifiable units — linked to requirements |
 | **/implement** | Execute one task at a time — verify before advancing |
+| **Project Constitution** | Always Do · Ask First · Never Do — rules for every implementation |
 | **User stories** | Goals over implementation; success criteria define "done" |
 
 → [Full Section 1 docs](./section-01-foundations/README.md)

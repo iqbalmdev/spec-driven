@@ -30,6 +30,22 @@ Before implementing:
 
 ---
 
+## Project Constitution
+
+Non-negotiable rules that govern every implementation task. Apply these on every `/implement` run.
+
+| Always Do ✓ | Ask First ? | Never Do ✕ |
+|-------------|-------------|------------|
+| **Follow naming** — Use established naming conventions for variables, functions, files, and APIs | **Change schema** — Discuss database or data-structure changes before implementing | **Bypass auth checks** — Never skip authentication or authorization |
+| **Keep PRs small** — Ship focused pull requests that map to a single task | **Refactor core modules** — Get alignment before changing foundational modules | **Log sensitive data** — Never log passwords, tokens, PII, or secrets |
+
+**How to use:**
+- **Always Do** — defaults on every task and PR
+- **Ask First** — high-impact changes that need discussion before code
+- **Never Do** — hard security and safety bans, no exceptions
+
+---
+
 ## Key Concepts
 
 ### 1. Task-Ordered Execution
@@ -204,12 +220,13 @@ A feature is **complete** when:
 
 ## Practical Takeaways
 
-1. **One task at a time.** Dependency order is not a suggestion.
-2. **Verify before advancing.** Failed verification blocks the next task.
-3. **Spec over code.** Fix code when it diverges from requirements.
-4. **Scope AI prompts to one task.** Never "build the whole feature."
-5. **Trace commits to tasks and requirements.** Auditability matters.
-6. **Tests are Task 4, not an afterthought.** Verification stage is built into the task list.
+1. **Follow the Project Constitution.** Always Do · Ask First · Never Do — on every task.
+2. **One task at a time.** Dependency order is not a suggestion.
+3. **Verify before advancing.** Failed verification blocks the next task.
+4. **Spec over code.** Fix code when it diverges from requirements.
+5. **Scope AI prompts to one task.** Never "build the whole feature."
+6. **Trace commits to tasks and requirements.** Auditability matters.
+7. **Tests are Task 4, not an afterthought.** Verification stage is built into the task list.
 
 ---
 
@@ -217,6 +234,7 @@ A feature is **complete** when:
 
 | Term | Definition |
 |------|------------|
+| **Project Constitution** | Always Do · Ask First · Never Do — rules that govern every implementation |
 | **/implement** | Workflow/command to execute a single task against its linked requirement |
 | **Task-ordered execution** | Implementing tasks strictly in dependency order from tasks.md |
 | **Per-task verification** | Running checkbox criteria before marking a task complete |
