@@ -1,46 +1,62 @@
 import Link from "next/link";
+import { CourseJourneyCards } from "@/components/immersive/course-journey-cards";
+import { ScrollReveal } from "@/components/immersive/scroll-reveal";
+import { SddJourneyScene } from "@/components/sdd-journey-scene";
+import { PageHeader, Card } from "@/components/ui/layout";
 import { ArrowRight } from "lucide-react";
-import { courseSections } from "@/content/course";
-import { getSectionHref } from "@/lib/course-nav";
-import { PageHeader, Badge, Card } from "@/components/ui/layout";
 
 export default function CoursePage() {
   return (
-    <div>
+    <div className="space-y-16">
       <PageHeader
         eyebrow="Course"
         title="Spec-Driven Development"
-        description="From Vibe-Coding to AI Engineering — progress through each section. Specs live in the repo; the Clarification Gate blocks implementation until intent is clear."
+        description="Scroll through each section — specs live in the repo; the Clarification Gate blocks implementation until intent is clear."
       />
 
-      <div className="space-y-4">
-        {courseSections.map((section) => (
-          <Link key={section.id} href={getSectionHref(section.slug)} className="group block">
-            <Card hover className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="space-y-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono text-muted">Section {section.number}</span>
-                  <Badge variant={section.status === "complete" ? "success" : "warning"}>
-                    {section.status === "complete" ? "Complete" : "Pending"}
-                  </Badge>
-                </div>
-                <h2 className="text-xl font-semibold group-hover:text-accent transition-colors">
-                  {section.title}
-                </h2>
-                <p className="text-sm text-muted">{section.subtitle}</p>
-                <p className="text-sm text-muted leading-relaxed max-w-2xl">{section.description}</p>
-              </div>
-              <span className="inline-flex items-center gap-1 text-sm font-medium text-accent shrink-0">
-                Open section <ArrowRight className="h-4 w-4" />
-              </span>
-            </Card>
-          </Link>
-        ))}
+      <ScrollReveal>
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold">Your learning path</h2>
+          <p className="text-sm text-muted max-w-2xl">
+            Swipe through sections or explore the 3D journey map below. Each section builds on the last.
+          </p>
+          <CourseJourneyCards />
+        </section>
+      </ScrollReveal>
 
-        <Card className="border-dashed opacity-60">
-          <p className="text-sm text-muted">Section 5 — coming as the course progresses.</p>
-        </Card>
-      </div>
+      <ScrollReveal delay={0.1}>
+        <SddJourneyScene variant="immersive" />
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.15}>
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold">Quick links</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <Link href="/requirements" className="group">
+              <Card hover className="flex items-center justify-between">
+                <div>
+                  <p className="font-medium text-sm">Living requirements.md</p>
+                  <p className="text-xs text-muted mt-0.5">See the Clarification Gate in action</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Card>
+            </Link>
+            <Link href="/workflow" className="group">
+              <Card hover className="flex items-center justify-between">
+                <div>
+                  <p className="font-medium text-sm">Interactive workflow</p>
+                  <p className="text-xs text-muted mt-0.5">shape-spec → tasks → verify</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Card>
+            </Link>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      <Card className="border-dashed opacity-60">
+        <p className="text-sm text-muted">Section 5 — coming as the course progresses.</p>
+      </Card>
     </div>
   );
 }

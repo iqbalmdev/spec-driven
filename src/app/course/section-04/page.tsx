@@ -19,7 +19,7 @@ export default function SectionFourPage() {
 
       <QuoteBlock>{NORTH_STAR}</QuoteBlock>
 
-      <SddJourneyScene />
+      <SddJourneyScene variant="immersive" />
 
       <section className="space-y-6">
         <h2 className="text-xl font-semibold">Core Topics</h2>

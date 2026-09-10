@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { cn } from "@/lib/utils";
 import { OrbitControls, Text, Float, Line } from "@react-three/drei";
 import type { Mesh } from "three";
 
@@ -83,13 +84,18 @@ function Scene({ activeIndex, setActiveIndex }: { activeIndex: number; setActive
   );
 }
 
-export function SddJourneyCanvas() {
+export function SddJourneyCanvas({ immersive = false }: { immersive?: boolean }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = nodes[activeIndex];
 
   return (
     <div className="space-y-3">
-      <div className="h-[320px] rounded-2xl border border-border overflow-hidden bg-gradient-to-b from-sky-50/80 to-stone-100/80 dark:from-stone-900 dark:to-stone-950">
+      <div
+        className={cn(
+          "rounded-2xl border border-border overflow-hidden bg-gradient-to-b from-sky-50/80 to-stone-100/80 dark:from-stone-900 dark:to-stone-950",
+          immersive ? "h-[min(60vh,520px)]" : "h-[320px]"
+        )}
+      >
         <Canvas camera={{ position: [0, 2, 10], fov: 50 }}>
           <Scene activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
         </Canvas>

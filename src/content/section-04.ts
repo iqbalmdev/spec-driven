@@ -4,7 +4,7 @@ export const section04Topics = [
     title: "Understanding Requirements",
     subtitle: "shape-spec before code",
     description:
-      "AI must comprehensively understand a feature before coding. shape-spec forces structured conversation — preventing misassumptions and locking in shared intent.",
+      "AI must comprehensively understand a feature before coding. shape-spec forces structured conversation — with EARS patterns for precise acceptance criteria.",
     href: "/course/section-04/shape-spec",
   },
   {
@@ -12,7 +12,7 @@ export const section04Topics = [
     title: "Clarification Gate",
     subtitle: "Zero ambiguity",
     description:
-      "Resolve every open item in requirements.md before advancing. Each decision is documented — clarity is locked in, not carried in chat.",
+      "Resolve every open item in requirements.md before advancing. Pass the Ready for Plan Checklist — measurable success, roles, errors, and constraints.",
     href: "/course/section-04/gate",
   },
   {
@@ -140,6 +140,23 @@ export const exactCommandsExample = [
   { task: "Lint", vague: "check code quality", exact: "npm run lint" },
 ] as const;
 
+export const earsPatterns = [
+  { type: "Ubiquitous", template: "The system shall…" },
+  { type: "Event-Driven", template: "When <trigger>, the system shall…" },
+  { type: "State-Driven", template: "While <in a specific state>, the system shall…" },
+  { type: "Optional Feature", template: "Where <feature is included>, the system shall…" },
+  { type: "Unwanted Behavior", template: "If <condition>, then the system shall…" },
+] as const;
+
+export const readyForPlanChecklist = [
+  { id: "clarification", label: "No [NEEDS CLARIFICATION] items remain" },
+  { id: "success", label: "Success criteria are measurable" },
+  { id: "roles", label: "Roles and permissions are explicit" },
+  { id: "errors", label: "Error behavior is explicit" },
+  { id: "data", label: "Data lifecycle is explicit" },
+  { id: "constraints", label: "DO NOT constraints are present" },
+] as const;
+
 export const shapeSpecPrompts = [
   { phase: "Frame", question: "What problem does this solve — for whom?", placeholder: "Learners lose course notes scattered in chat..." },
   { phase: "Scope", question: "What is explicitly out of scope?", placeholder: "Authentication, payments, mobile app..." },
@@ -149,7 +166,9 @@ export const shapeSpecPrompts = [
 
 export const section04Takeaways = [
   "shape-spec before code. Structured conversation prevents AI misassumptions.",
+  "Write requirements with EARS patterns — predictable syntax AI and humans parse the same way.",
   "Clarification Gate: zero open items in requirements.md — decisions documented, clarity locked in.",
+  "Ready for Plan Checklist: measurable success, explicit roles, errors, data lifecycle, and DO NOT constraints.",
   "constitution.md balances org consistency with project flexibility.",
   "Document exact commands — npm run build, not 'make sure it works.'",
   "Tier Two approval gates: dependencies, schema, public API — human verifies first.",

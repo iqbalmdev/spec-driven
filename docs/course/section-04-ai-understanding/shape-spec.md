@@ -26,6 +26,15 @@ Without shape-spec, AI:
 
 ### 3. Define contracts
 - Inputs, outputs, acceptance criteria, edge cases
+- Draft acceptance criteria using **EARS** patterns:
+
+| Pattern Type | Template |
+|--------------|----------|
+| Ubiquitous | The system shall… |
+| Event-Driven | When \<trigger\>, the system shall… |
+| State-Driven | While \<in a specific state\>, the system shall… |
+| Optional Feature | Where \<feature is included\>, the system shall… |
+| Unwanted Behavior | If \<condition\>, then the system shall… |
 
 ### 4. Capture open items
 - Log in requirements.md with `[OPEN]`
