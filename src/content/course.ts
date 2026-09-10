@@ -336,6 +336,16 @@ export const courseSections = [
     description:
       "Execute tasks in dependency order via /implement — spec-aligned code, per-task verification, and feature sign-off against acceptance criteria.",
   },
+  {
+    id: "section-04",
+    number: 4,
+    slug: "section-04",
+    title: "AI Understanding",
+    subtitle: "Clarity Before Code",
+    status: "complete" as const,
+    description:
+      "shape-spec, Clarification Gate, constitution.md, living documentation with exact commands, and Tier Two approval gates — ensuring AI understands before coding.",
+  },
 ] as const;
 
 export const shapeSpecPhases = [

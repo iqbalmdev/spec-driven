@@ -13,7 +13,8 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 | 1 | Foundations — From Vibe-Coding to Structured Specs | [section-01-foundations](./section-01-foundations/) | ✅ Done |
 | 2 | Task Implementation — From Spec to Tasks | [section-02-task-implementation](./section-02-task-implementation/) | ✅ Done |
 | 3 | Code Implementation — From Tasks to Verified Code | [section-03-implementation](./section-03-implementation/) | ✅ Done |
-| 4 | _TBD_ | — | ⏳ Pending |
+| 4 | AI Understanding — Clarity Before Code | [section-04-ai-understanding](./section-04-ai-understanding/) | ✅ Done |
+| 5 | _TBD_ | — | ⏳ Pending |
 
 ---
 
