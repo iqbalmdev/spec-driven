@@ -3,6 +3,7 @@ import { section04Topics, section04Takeaways, documentationFiles } from "@/conte
 import { ShapeSpecSimulator } from "@/components/shape-spec-simulator";
 import { ApprovalGatesGame } from "@/components/approval-gates-game";
 import { SddJourneyScene } from "@/components/sdd-journey-scene";
+import { ScrollReveal } from "@/components/immersive/scroll-reveal";
 import { SectionPager } from "@/components/course-nav";
 import { PageHeader, QuoteBlock, Badge, Card } from "@/components/ui/layout";
 import { ArrowRight } from "lucide-react";
@@ -21,20 +22,22 @@ export default function SectionFourPage() {
 
       <SddJourneyScene variant="immersive" />
 
-      <section className="space-y-6">
-        <h2 className="text-xl font-semibold">Core Topics</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {section04Topics.map((topic) => (
-            <Link key={topic.id} href={topic.href} className="group">
-              <Card hover className="h-full space-y-2">
-                <p className="text-xs font-medium uppercase tracking-widest text-accent">{topic.subtitle}</p>
-                <h3 className="font-semibold group-hover:text-accent transition-colors">{topic.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{topic.description}</p>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <ScrollReveal>
+        <section className="space-y-6">
+          <h2 className="text-xl font-semibold">Core Topics</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {section04Topics.map((topic) => (
+              <Link key={topic.id} href={topic.href} className="group">
+                <Card hover className="h-full space-y-2 transition-transform hover:-translate-y-0.5">
+                  <p className="text-xs font-medium uppercase tracking-widest text-accent">{topic.subtitle}</p>
+                  <h3 className="font-semibold group-hover:text-accent transition-colors">{topic.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{topic.description}</p>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       <ShapeSpecSimulator />
 

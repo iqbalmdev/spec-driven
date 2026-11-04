@@ -346,6 +346,26 @@ export const courseSections = [
     description:
       "shape-spec, Clarification Gate, constitution.md, living documentation with exact commands, and Tier Two approval gates — ensuring AI understands before coding.",
   },
+  {
+    id: "section-05",
+    number: 5,
+    slug: "section-05",
+    title: "Tooling & Ecosystem",
+    subtitle: "Module 5 — Agent OS, Kiro, MCP",
+    status: "complete" as const,
+    description:
+      "Agent OS for the feature lifecycle, Amazon Kiro as a high-rigor agentic IDE, and MCP as the runtime diagnostic bridge to your stack.",
+  },
+  {
+    id: "section-06",
+    number: 6,
+    slug: "section-06",
+    title: "AgentOS",
+    subtitle: "Persistent Project Memory",
+    status: "complete" as const,
+    description:
+      "plan.md, roadmap.md, techstack.md — shape-spec, /create-tasks, and implement or orchestrate paths for faster, consistent AI-assisted development.",
+  },
 ] as const;
 
 export const shapeSpecPhases = [

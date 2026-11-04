@@ -86,11 +86,29 @@ export default function TemplatesPage() {
         </div>
       </section>
 
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">AgentOS memory (Section 6)</h2>
+        <p className="text-sm text-muted">
+          Persistent project context — plan, roadmap, and stack — so AI assistants reload focus every session.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {["plan.md", "roadmap.md", "techstack.md"].map((file) => (
+            <Card key={file} className="text-sm">
+              <code className="font-mono text-accent">{file}</code>
+              <p className="text-muted mt-2 text-xs">See templates/{file} in the repo</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       <Card className="text-sm text-muted">
         Full templates also live in the repo at{" "}
         <code className="font-mono text-foreground">templates/user-story.md</code>,{" "}
-        <code className="font-mono text-foreground">templates/requirements.md</code>, and{" "}
-        <code className="font-mono text-foreground">templates/tasks.md</code>.
+        <code className="font-mono text-foreground">templates/requirements.md</code>,{" "}
+        <code className="font-mono text-foreground">templates/tasks.md</code>, and AgentOS{" "}
+        <code className="font-mono text-foreground">templates/plan.md</code>,{" "}
+        <code className="font-mono text-foreground">roadmap.md</code>,{" "}
+        <code className="font-mono text-foreground">techstack.md</code>.
       </Card>
     </div>
   );

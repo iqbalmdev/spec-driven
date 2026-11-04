@@ -54,9 +54,6 @@ export default function CoursePage() {
         </section>
       </ScrollReveal>
 
-      <Card className="border-dashed opacity-60">
-        <p className="text-sm text-muted">Section 5 — coming as the course progresses.</p>
-      </Card>
     </div>
   );
 }

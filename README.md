@@ -36,6 +36,8 @@ Spec-driven/
 | 2 | Task Implementation — From Spec to Tasks | ✅ Documented + App |
 | 3 | Code Implementation — From Tasks to Verified Code | ✅ Documented + App |
 | 4 | AI Understanding — Clarity Before Code | ✅ Documented + App + 3D Journey |
+| 5 | Module 5: Tooling and Ecosystem | ✅ Documented + App |
+| 6 | AgentOS — Persistent Project Memory | ✅ Documented + App |
 
 ## Key Concepts
 
@@ -54,4 +56,6 @@ Spec-driven/
 - [Section 2](./docs/course/section-02-task-implementation/README.md)
 - [Section 3](./docs/course/section-03-implementation/README.md)
 - [Section 4](./docs/course/section-04-ai-understanding/README.md)
+- [Section 5](./docs/course/section-05-tooling-ecosystem/README.md)
+- [Section 6](./docs/course/section-06-agentos/README.md)
 - [requirements.md](./requirements.md)

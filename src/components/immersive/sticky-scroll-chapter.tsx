@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type CSSProperties } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Badge, Card } from "@/components/ui/layout";
@@ -36,8 +36,13 @@ export function StickyScrollChapter({
   });
 
   return (
-    <section id={id} ref={containerRef} className="relative" style={{ height: `${items.length * 100}vh` }}>
-      <div className="sticky top-20 flex h-[calc(100vh-5rem)] items-center">
+    <section
+      id={id}
+      ref={containerRef}
+      className="relative sm:[height:var(--chapter-h)]"
+      style={{ "--chapter-h": `${items.length * 100}vh` } as CSSProperties}
+    >
+      <div className="hidden sm:flex sticky top-20 h-[calc(100vh-5rem)] items-center">
         <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 sm:grid-cols-2 sm:px-6 lg:gap-16">
           {/* Sticky left panel */}
           <div className="flex flex-col justify-center space-y-6">
@@ -85,8 +90,8 @@ export function StickyScrollChapter({
         </div>
       </div>
 
-      {/* Mobile: stacked cards */}
-      <div className="sm:hidden space-y-4 px-4 pb-24 -mt-[calc(100vh-5rem)]">
+      {/* Mobile: stacked cards (no sticky scroll) */}
+      <div className="sm:hidden space-y-4 px-4 py-12">
         {items.map((item) => (
           <Card key={item.id} className="space-y-4">
             <div>
