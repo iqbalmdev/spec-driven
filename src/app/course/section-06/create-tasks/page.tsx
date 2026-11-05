@@ -6,7 +6,7 @@ export default function SectionSixCreateTasksPage() {
   return (
     <div className="space-y-12">
       <PageHeader
-        eyebrow="Section 6 · /create-tasks"
+        eyebrow="Section 6 · Lesson 5"
         title="Decompose Into a Checklist"
         description="/create-tasks breaks a clarified feature into small tasks in tasks.md — ordered by dependencies with verification steps."
       />

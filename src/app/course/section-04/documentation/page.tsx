@@ -1,3 +1,4 @@
+import { LivingDocsChecklist } from "@/components/living-docs-checklist";
 import { documentationFiles, exactCommandsExample } from "@/content/section-04";
 import { SectionPager } from "@/components/course-nav";
 import { PageHeader, Badge, Card } from "@/components/ui/layout";
@@ -10,6 +11,15 @@ export default function DocumentationPage() {
         title="Living Docs & Exact Commands"
         description="Keep documentation relevant and practical. Give AI exact commands — not vague suggestions."
       />
+
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Minimal Living Docs Checklist</h2>
+        <p className="text-sm text-muted leading-relaxed max-w-2xl">
+          Before you merge or sign off a feature, confirm documentation matches reality — not what you intended at the
+          start of the sprint.
+        </p>
+        <LivingDocsChecklist />
+      </section>
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">File Roles</h2>

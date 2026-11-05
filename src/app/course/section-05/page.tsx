@@ -1,6 +1,13 @@
 import Link from "next/link";
-import { section05Topics, section05Takeaways, section05ModuleMeta } from "@/content/section-05";
+import {
+  section05Topics,
+  section05Takeaways,
+  section05ModuleMeta,
+  highRigorArtifactFiles,
+  kiroWorkflowFiles,
+} from "@/content/section-05";
 import { AgentOsLifecycle } from "@/components/agent-os-lifecycle";
+import { AgentOsMemoryScene } from "@/components/three/lazy-three-scenes";
 import { ScrollReveal } from "@/components/immersive/scroll-reveal";
 import { SectionPager } from "@/components/course-nav";
 import { PageHeader, QuoteBlock, Badge, Card } from "@/components/ui/layout";
@@ -47,7 +54,56 @@ export default function SectionFivePage() {
         </section>
       </ScrollReveal>
 
+      <section className="space-y-4">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="text-xl font-semibold">Kiro spec triad</h2>
+            <p className="text-sm text-muted mt-1 max-w-2xl">
+              requirements.md (what), design.md (how), tasks.md (steps) — each with clear must-include rules.
+            </p>
+          </div>
+          <Link
+            href="/course/section-05/spec-files"
+            className="inline-flex items-center gap-1 text-sm font-medium text-accent"
+          >
+            Full needs & requirements <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {kiroWorkflowFiles.map((row) => (
+            <Card key={row.file} className="space-y-2">
+              <code className="text-sm font-mono text-accent">{row.file}</code>
+              <Badge variant="accent">{row.role}</Badge>
+              <p className="text-sm text-muted leading-relaxed">{row.detail}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       <AgentOsLifecycle />
+
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">High-rigor documentation artifacts</h2>
+        <div className="overflow-x-auto rounded-xl border border-border">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-border bg-surface-elevated/50">
+                <th className="px-4 py-3 text-left font-medium">File</th>
+                <th className="px-4 py-3 text-left font-medium">Problem it prevents</th>
+              </tr>
+            </thead>
+            <tbody>
+              {highRigorArtifactFiles.map((row, i) => (
+                <tr key={row.file} className={i % 2 === 0 ? "" : "bg-surface-elevated/30"}>
+                  <td className="px-4 py-3 font-mono text-xs">{row.file}</td>
+                  <td className="px-4 py-3 font-medium capitalize">{row.problem}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <AgentOsMemoryScene />
+      </section>
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Practical Takeaways</h2>

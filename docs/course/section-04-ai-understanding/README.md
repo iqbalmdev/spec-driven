@@ -117,6 +117,17 @@ Docs must stay **relevant and practical** — version-controlled like code.
 
 Vague docs produce vague AI behaviour. **Exact commands enable exact execution.**
 
+### Minimal "Living Docs" Checklist
+
+Before merge or feature sign-off, confirm:
+
+- [ ] **Spec reflects final behavior.** — requirements.md matches what shipped
+- [ ] **Plan reflects final architecture.** — plan / architecture docs match the built system
+- [ ] **Tasks are checked off & linked.** — tasks.md complete and tied to requirements
+- [ ] **Verification evidence exists.** — tests, build, lint, or recorded acceptance proof
+
+If any item fails, update docs in the same PR as the code — do not merge with drift.
+
 ---
 
 ## 5. Approval Gates (Tier Two)
@@ -181,6 +192,7 @@ Verify → feature complete
 | **EARS** | Easy Approach to Requirements Syntax — standardized sentence patterns for requirements |
 | **Clarification Gate** | Zero open items in requirements.md before proceeding |
 | **Ready for Plan Checklist** | Six checks before advancing to task creation |
+| **Minimal Living Docs Checklist** | Four checks before merge — spec, plan, tasks, verification evidence |
 | **constitution.md** | Team rules balancing consistency and flexibility |
 | **Tier One** | Always Do — safe defaults, proceed without asking |
 | **Tier Two** | Ask First — approval gates for significant changes |

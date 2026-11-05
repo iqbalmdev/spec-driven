@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { section04Topics, section04Takeaways, documentationFiles } from "@/content/section-04";
+import { LivingDocsChecklist } from "@/components/living-docs-checklist";
 import { ShapeSpecSimulator } from "@/components/shape-spec-simulator";
 import { ApprovalGatesGame } from "@/components/approval-gates-game";
 import { SddJourneyScene } from "@/components/sdd-journey-scene";
@@ -42,6 +43,21 @@ export default function SectionFourPage() {
       <ShapeSpecSimulator />
 
       <ApprovalGatesGame />
+
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold">Minimal Living Docs Checklist</h2>
+        <p className="text-sm text-muted max-w-2xl leading-relaxed">
+          After implementation, living docs must reflect what shipped. Use this gate before merge — alongside the Ready
+          for Plan Checklist you passed earlier.
+        </p>
+        <LivingDocsChecklist />
+        <Link
+          href="/course/section-04/documentation"
+          className="inline-flex items-center gap-1 text-sm font-medium text-accent"
+        >
+          Documentation maintenance <ArrowRight className="h-4 w-4" />
+        </Link>
+      </section>
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Documentation Files</h2>

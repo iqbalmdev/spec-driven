@@ -1,4 +1,5 @@
 import { WorkflowDiagram } from "@/components/workflow-diagram";
+import { WorkflowPipelineScene } from "@/components/three/lazy-three-scenes";
 import { DevelopmentStages } from "@/components/development-stages";
 import { developmentStages } from "@/content/course";
 import { PageHeader, Card } from "@/components/ui/layout";
@@ -34,6 +35,8 @@ export default function WorkflowPage() {
         title="SDD Workflow"
         description="The path from feature idea to verified implementation — each step enforces clarity before speed."
       />
+
+      <WorkflowPipelineScene />
 
       <Card className="p-8">
         <WorkflowDiagram interactive />

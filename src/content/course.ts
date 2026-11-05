@@ -354,17 +354,17 @@ export const courseSections = [
     subtitle: "Module 5 — Agent OS, Kiro, MCP",
     status: "complete" as const,
     description:
-      "Agent OS for the feature lifecycle, Amazon Kiro as a high-rigor agentic IDE, and MCP as the runtime diagnostic bridge to your stack.",
+      "AgentOS (/plan product), Amazon Kiro (requirements/design/tasks, EARS), MCP — plan, roadmap, techstack memory files.",
   },
   {
     id: "section-06",
     number: 6,
     slug: "section-06",
-    title: "AgentOS",
-    subtitle: "Persistent Project Memory",
+    title: "Living Specs & AgentOS",
+    subtitle: "Executable Guardrails + Persistent Memory",
     status: "complete" as const,
     description:
-      "plan.md, roadmap.md, techstack.md — shape-spec, /create-tasks, and implement or orchestrate paths for faster, consistent AI-assisted development.",
+      "Lesson 1: test-driven specs, Given/When/Then, test-first gate, and traceable done. AgentOS memory, shape-spec, tasks, implement or orchestrate.",
   },
 ] as const;
 

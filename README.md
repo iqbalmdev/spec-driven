@@ -17,7 +17,16 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Repository Structure
+### If styles disappear (no Tailwind / plain HTML)
+
+This happens when the `.next` cache is corrupted — usually **`npm run build` ran while `npm run dev` was still running**.
+
+1. Stop all dev servers (Ctrl+C).
+2. Run **`npm run dev`** again — it clears `.next` automatically before starting.
+3. Hard refresh the browser (**Cmd+Shift+R**). Use **http://localhost:3000** (same URL every time, not mixing LAN IP and localhost).
+
+Do not run `npm run build` until dev is stopped. Production builds on Vercel are unaffected.
+
 
 ```
 Spec-driven/
@@ -37,7 +46,7 @@ Spec-driven/
 | 3 | Code Implementation — From Tasks to Verified Code | ✅ Documented + App |
 | 4 | AI Understanding — Clarity Before Code | ✅ Documented + App + 3D Journey |
 | 5 | Module 5: Tooling and Ecosystem | ✅ Documented + App |
-| 6 | AgentOS — Persistent Project Memory | ✅ Documented + App |
+| 6 | Living Specs & AgentOS | ✅ Documented + App |
 
 ## Key Concepts
 

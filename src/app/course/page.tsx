@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CourseJourneyCards } from "@/components/immersive/course-journey-cards";
 import { ScrollReveal } from "@/components/immersive/scroll-reveal";
+import { CourseOrbitScene } from "@/components/three/lazy-three-scenes";
 import { SddJourneyScene } from "@/components/sdd-journey-scene";
 import { PageHeader, Card } from "@/components/ui/layout";
 import { ArrowRight } from "lucide-react";
@@ -21,6 +22,16 @@ export default function CoursePage() {
             Swipe through sections or explore the 3D journey map below. Each section builds on the last.
           </p>
           <CourseJourneyCards />
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal delay={0.08}>
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold">Sections in 3D</h2>
+          <p className="text-sm text-muted max-w-2xl">
+            Orbit through all six sections — click a sphere to jump in.
+          </p>
+          <CourseOrbitScene />
         </section>
       </ScrollReveal>
 

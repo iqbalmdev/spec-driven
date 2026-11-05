@@ -28,7 +28,7 @@ export const section04Topics = [
     title: "Documentation Maintenance",
     subtitle: "Exact commands, living docs",
     description:
-      "Keep docs relevant and practical. Give AI exact commands — not vague suggestions. requirements.md, tasks.md, and AGENTS.md evolve with the project.",
+      "Keep docs relevant and practical — pass the Minimal Living Docs Checklist before merge. Exact commands, not vague suggestions.",
     href: "/course/section-04/documentation",
   },
   {
@@ -157,6 +157,30 @@ export const readyForPlanChecklist = [
   { id: "constraints", label: "DO NOT constraints are present" },
 ] as const;
 
+/** Before merge / feature sign-off — docs match shipped behavior (Section 4 · Living Docs). */
+export const minimalLivingDocsChecklist = [
+  {
+    id: "spec",
+    label: "Spec reflects final behavior.",
+    detail: "requirements.md (or shaped spec) matches what you actually built.",
+  },
+  {
+    id: "plan",
+    label: "Plan reflects final architecture.",
+    detail: "plan.md / architecture notes describe the system as implemented.",
+  },
+  {
+    id: "tasks",
+    label: "Tasks are checked off & linked.",
+    detail: "tasks.md checkboxes done and traceable to requirements.",
+  },
+  {
+    id: "verification",
+    label: "Verification evidence exists.",
+    detail: "Tests, build, lint, or recorded acceptance proof — not “looks fine.”",
+  },
+] as const;
+
 export const shapeSpecPrompts = [
   { phase: "Frame", question: "What problem does this solve — for whom?", placeholder: "Learners lose course notes scattered in chat..." },
   { phase: "Scope", question: "What is explicitly out of scope?", placeholder: "Authentication, payments, mobile app..." },
@@ -171,6 +195,7 @@ export const section04Takeaways = [
   "Ready for Plan Checklist: measurable success, explicit roles, errors, data lifecycle, and DO NOT constraints.",
   "constitution.md balances org consistency with project flexibility.",
   "Document exact commands — npm run build, not 'make sure it works.'",
+  "Minimal Living Docs Checklist: spec, plan, tasks, and verification evidence before merge.",
   "Tier Two approval gates: dependencies, schema, public API — human verifies first.",
   "Living docs evolve with the project. If it is not in git, it does not exist.",
 ] as const;

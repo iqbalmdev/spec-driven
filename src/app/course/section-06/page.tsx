@@ -3,10 +3,12 @@ import {
   section06Topics,
   section06Takeaways,
   section06Benefits,
+  section06ModuleMeta,
   agentOsMemoryFiles,
   agentOsWorkflow,
 } from "@/content/section-06";
 import { ImplementationPathPicker } from "@/components/agentos-path-picker";
+import { AgentOsMemoryScene } from "@/components/three/lazy-three-scenes";
 import { ScrollReveal } from "@/components/immersive/scroll-reveal";
 import { SectionPager } from "@/components/course-nav";
 import { PageHeader, QuoteBlock, Card } from "@/components/ui/layout";
@@ -17,21 +19,30 @@ export default function SectionSixPage() {
     <div className="space-y-16">
       <PageHeader
         eyebrow="Section 6"
-        title="AgentOS — Persistent Project Memory"
-        description="Structure AI-assisted development with memory files, shape-spec, /create-tasks, and implement or orchestrate paths — faster, consistent, reliable delivery."
+        title={section06ModuleMeta.title}
+        description="Lesson 1: executable guardrails and test-driven specs. Lessons 2–6: AgentOS persistent memory, shape-spec, tasks, and implementation paths."
       />
 
       <QuoteBlock>
-        If your assistant remembered plan, roadmap, stack, and specs every session — what would you delegate first?
+        When your team says a feature is done — is that an opinion, or a verifiable fact?
       </QuoteBlock>
+
+      <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
+        <span>
+          {section06ModuleMeta.lessonCount} lessons · ~{section06ModuleMeta.estimatedMinutes} min
+        </span>
+      </div>
+
+      <AgentOsMemoryScene />
 
       <ScrollReveal>
         <section className="space-y-6">
           <h2 className="text-xl font-semibold">Topics</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {section06Topics.map((topic) => (
+            {section06Topics.map((topic, i) => (
               <Link key={topic.id} href={topic.href} className="group">
                 <Card hover className="h-full space-y-2 transition-transform hover:-translate-y-0.5">
+                  <span className="text-xs font-mono text-muted">Lesson {i + 1}</span>
                   <p className="text-xs font-medium uppercase tracking-widest text-accent">{topic.subtitle}</p>
                   <h3 className="font-semibold group-hover:text-accent transition-colors">{topic.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{topic.description}</p>

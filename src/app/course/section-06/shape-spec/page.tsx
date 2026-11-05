@@ -6,7 +6,7 @@ export default function SectionSixShapeSpecPage() {
   return (
     <div className="space-y-12">
       <PageHeader
-        eyebrow="Section 6 · shape-spec"
+        eyebrow="Section 6 · Lesson 4"
         title="Dialogue Before Code"
         description="shape-spec is a structured conversation with AI until the feature is understood — then capture outcomes in requirements.md and clear ambiguity."
       />

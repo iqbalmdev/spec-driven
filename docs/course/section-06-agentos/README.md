@@ -1,4 +1,12 @@
-# Section 6 — AgentOS: Persistent Project Memory
+# Section 6 — Living Specs & AgentOS
+
+## Lesson 1 — Living Specs & Executable Guardrails
+
+See [living-guardrails.md](./living-guardrails.md). App: `/course/section-06/living-guardrails`.
+
+---
+
+## Lesson 2+ — AgentOS: Persistent Project Memory
 
 > **Problem:** AI assistants lose project context between sessions — productivity drops and decisions repeat.
 
