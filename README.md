@@ -47,6 +47,7 @@ Spec-driven/
 | 4 | AI Understanding — Clarity Before Code | ✅ Documented + App + 3D Journey |
 | 5 | Module 5: Tooling and Ecosystem | ✅ Documented + App |
 | 6 | Living Specs & AgentOS | ✅ Documented + App |
+| 7 | Advanced SDD Use Cases | ✅ Documented + App |
 
 ## Key Concepts
 
@@ -67,4 +68,5 @@ Spec-driven/
 - [Section 4](./docs/course/section-04-ai-understanding/README.md)
 - [Section 5](./docs/course/section-05-tooling-ecosystem/README.md)
 - [Section 6](./docs/course/section-06-agentos/README.md)
+- [Section 7](./docs/course/section-07-advanced-sdd/README.md)
 - [requirements.md](./requirements.md)

@@ -16,6 +16,7 @@ Track progress through each section. Document concepts here; enforce the Clarifi
 | 4 | AI Understanding — Clarity Before Code | [section-04-ai-understanding](./section-04-ai-understanding/) | ✅ Done |
 | 5 | Module 5: Tooling and Ecosystem | [section-05-tooling-ecosystem](./section-05-tooling-ecosystem/) | ✅ Done |
 | 6 | Living Specs & AgentOS | [section-06-agentos](./section-06-agentos/) | ✅ Done |
+| 7 | Advanced SDD Use Cases | [section-07-advanced-sdd](./section-07-advanced-sdd/) | ✅ Done |
 
 ---
 

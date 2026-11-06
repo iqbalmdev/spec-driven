@@ -20,7 +20,7 @@ export default function SectionSixPage() {
       <PageHeader
         eyebrow="Section 6"
         title={section06ModuleMeta.title}
-        description="Lesson 1: executable guardrails and test-driven specs. Lessons 2–6: AgentOS persistent memory, shape-spec, tasks, and implementation paths."
+        description="Lessons 1–4: guardrails, gates, PBT, expert AI crew. Lessons 5–9: AgentOS memory, shape-spec, tasks, and paths."
       />
 
       <QuoteBlock>

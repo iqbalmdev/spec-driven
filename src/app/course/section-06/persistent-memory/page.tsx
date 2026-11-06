@@ -5,7 +5,7 @@ export default function PersistentMemoryPage() {
   return (
     <div className="space-y-12">
       <PageHeader
-        eyebrow="Section 6 · Lesson 2"
+        eyebrow="Section 6 · Lesson 5"
         title="Persistent Project Memory"
         description="AI assistants forget chat context. AgentOS stores project memory in the repo — reloaded every session — so focus and decisions persist."
       />

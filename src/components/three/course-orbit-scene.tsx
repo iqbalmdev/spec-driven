@@ -3,89 +3,136 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, OrbitControls, Text } from "@react-three/drei";
-import type { Mesh } from "three";
+import { Billboard, Float, OrbitControls, Text } from "@react-three/drei";
+import type { Group, Mesh } from "three";
 import { courseSections } from "@/content/course";
 import { getSectionHref } from "@/lib/course-nav";
+import { GlowingCore, IdleSystemSpin, OrbitRingAccent, OrbitRingPath, OrbitSlot, SpaceBackdrop } from "./orbit-visuals";
 import { ThreeSceneFrame } from "./scene-frame";
 
-const sectionColors = ["#0d9488", "#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#ec4899"];
+const sectionColors = ["#2dd4bf", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa", "#f472b6", "#fb923c"];
 
-function SectionOrb({
+const ORBIT_RADIUS = 3.85;
+const ORBIT_SPEED = 0.14;
+const SYSTEM_TILT: [number, number, number] = [0.42, 0.12, 0.08];
+
+function SectionPlanet({
   number,
   title,
-  position,
   color,
   active,
   onClick,
 }: {
   number: number;
   title: string;
-  position: [number, number, number];
   color: string;
   active: boolean;
   onClick: () => void;
 }) {
-  const ref = useRef<Mesh>(null);
+  const meshRef = useRef<Mesh>(null);
+  const ringRef = useRef<Mesh>(null);
 
   useFrame((state) => {
-    if (ref.current && active) {
-      ref.current.scale.setScalar(1 + Math.sin(state.clock.elapsedTime * 2.5) * 0.06);
+    const t = state.clock.elapsedTime;
+    if (meshRef.current) {
+      meshRef.current.rotation.y = t * 0.9;
+      const pulse = active ? 1 + Math.sin(t * 3) * 0.08 : 1;
+      meshRef.current.scale.setScalar(pulse * (active ? 1.15 : 1));
+    }
+    if (ringRef.current && active) {
+      ringRef.current.rotation.z = t * 1.2;
     }
   });
 
   return (
-    <Float speed={1} floatIntensity={0.25}>
-      <group position={position}>
-        <mesh ref={ref} onClick={onClick}>
-          <sphereGeometry args={[0.32, 24, 24]} />
-          <meshStandardMaterial color={color} emissive={color} emissiveIntensity={active ? 0.55 : 0.2} />
+    <group onClick={onClick}>
+      {active && (
+        <mesh ref={ringRef} rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[0.52, 0.018, 8, 48]} />
+          <meshBasicMaterial color={color} transparent opacity={0.7} />
         </mesh>
-        <Text position={[0, -0.55, 0]} fontSize={0.16} color="#1c1917" anchorX="center">
+      )}
+      <mesh ref={meshRef}>
+        <sphereGeometry args={[active ? 0.38 : 0.3, 32, 32]} />
+        <meshStandardMaterial
+          color={color}
+          emissive={color}
+          emissiveIntensity={active ? 0.75 : 0.35}
+          roughness={0.25}
+          metalness={0.55}
+        />
+      </mesh>
+      <Billboard follow lockX lockZ position={[0, active ? 0.72 : 0.52, 0]}>
+        <Text fontSize={active ? 0.2 : 0.16} color="#f8fafc" anchorX="center" outlineWidth={0.02} outlineColor="#0f172a">
           S{number}
         </Text>
-        {active && (
-          <Text position={[0, 0.55, 0]} fontSize={0.12} color="#57534e" anchorX="center" maxWidth={1.8}>
+      </Billboard>
+      {active && (
+        <Billboard follow lockX lockZ position={[0, 1.05, 0]}>
+          <Text fontSize={0.11} color="#cbd5e1" anchorX="center" maxWidth={2.2} textAlign="center">
             {title}
           </Text>
-        )}
+        </Billboard>
+      )}
+    </group>
+  );
+}
+
+function CourseOrbitSystem({ activeIndex, setActiveIndex }: { activeIndex: number; setActiveIndex: (i: number) => void }) {
+  const orbitRef = useRef<Group>(null);
+  const sections = [...courseSections];
+
+  useFrame((state) => {
+    if (orbitRef.current) {
+      orbitRef.current.rotation.y = state.clock.elapsedTime * ORBIT_SPEED;
+    }
+  });
+
+  return (
+    <group rotation={SYSTEM_TILT}>
+      <GlowingCore size={0.5} color="#5eead4" emissive="#14b8a6" spin={0.35} />
+      <OrbitRingPath radius={ORBIT_RADIUS} color="#64748b" opacity={0.55} tube={0.014} />
+      <OrbitRingAccent radius={ORBIT_RADIUS * 1.12} tilt={[0.55, 0.4, 0.2]} />
+      <OrbitRingAccent radius={ORBIT_RADIUS * 0.88} tilt={[-0.35, -0.25, 0.15]} />
+
+      <group ref={orbitRef}>
+        {sections.map((section, i) => {
+          const phase = (i / sections.length) * Math.PI * 2;
+          return (
+            <OrbitSlot key={section.slug} radius={ORBIT_RADIUS} phase={phase}>
+              <Float speed={1.2} floatIntensity={0.12} rotationIntensity={0.05}>
+                <SectionPlanet
+                  number={section.number}
+                  title={section.title}
+                  color={sectionColors[i % sectionColors.length]}
+                  active={activeIndex === i}
+                  onClick={() => setActiveIndex(i)}
+                />
+              </Float>
+            </OrbitSlot>
+          );
+        })}
       </group>
-    </Float>
+    </group>
   );
 }
 
 function OrbitScene({ activeIndex, setActiveIndex }: { activeIndex: number; setActiveIndex: (i: number) => void }) {
-  const radius = 3.2;
-  const sections = [...courseSections];
-
   return (
     <>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[5, 8, 4]} intensity={1} />
-      <mesh>
-        <torusGeometry args={[radius, 0.02, 8, 64]} />
-        <meshStandardMaterial color="#94a3b8" emissive="#64748b" emissiveIntensity={0.2} />
-      </mesh>
-      {sections.map((section, i) => {
-        const angle = (i / sections.length) * Math.PI * 2 - Math.PI / 2;
-        const position: [number, number, number] = [
-          Math.cos(angle) * radius,
-          Math.sin(i * 0.4) * 0.35,
-          Math.sin(angle) * radius,
-        ];
-        return (
-          <SectionOrb
-            key={section.slug}
-            number={section.number}
-            title={section.title}
-            position={position}
-            color={sectionColors[i % sectionColors.length]}
-            active={activeIndex === i}
-            onClick={() => setActiveIndex(i)}
-          />
-        );
-      })}
-      <OrbitControls enablePan={false} minDistance={5} maxDistance={12} autoRotate autoRotateSpeed={0.35} />
+      <SpaceBackdrop />
+      <IdleSystemSpin speed={0.025}>
+        <CourseOrbitSystem activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+      </IdleSystemSpin>
+      <OrbitControls
+        enablePan={false}
+        minDistance={5.5}
+        maxDistance={14}
+        autoRotate
+        autoRotateSpeed={0.25}
+        enableDamping
+        dampingFactor={0.05}
+      />
     </>
   );
 }
@@ -96,14 +143,14 @@ export function CourseOrbitScene() {
 
   return (
     <div className="space-y-3">
-      <ThreeSceneFrame label="Course sections in 3D orbit" height="h-[min(55vh,400px)]">
-        <Canvas camera={{ position: [0, 2.5, 7], fov: 50 }}>
+      <ThreeSceneFrame label="Course sections in 3D orbit" height="h-[min(55vh,420px)]" variant="space">
+        <Canvas camera={{ position: [0, 2.8, 8.5], fov: 48 }} gl={{ antialias: true }}>
           <OrbitScene activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
         </Canvas>
       </ThreeSceneFrame>
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border bg-surface px-4 py-3">
         <div>
-          <p className="text-xs text-muted">Section {section.number}</p>
+          <p className="text-xs text-muted">Orbiting section {section.number}</p>
           <p className="font-medium">{section.title}</p>
         </div>
         <Link

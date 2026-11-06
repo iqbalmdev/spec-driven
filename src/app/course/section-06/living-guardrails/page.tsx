@@ -85,6 +85,12 @@ export default function LivingGuardrailsPage() {
         </Card>
       </section>
 
+      <p className="text-sm max-w-2xl">
+        <Link href="/course/section-06/property-based-testing" className="font-medium text-accent hover:underline">
+          Deep dive: Property-based testing (Section 6 · Lesson 3) →
+        </Link>
+      </p>
+
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Requirement traceability template</h2>
         <p className="text-sm text-muted max-w-2xl leading-relaxed">

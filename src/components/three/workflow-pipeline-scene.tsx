@@ -1,20 +1,24 @@
 "use client";
 
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Line, OrbitControls, Text } from "@react-three/drei";
+import { Billboard, Line, OrbitControls, Text } from "@react-three/drei";
 import type { Mesh } from "three";
+import * as THREE from "three";
+import { GlowingCore, SpaceBackdrop } from "./orbit-visuals";
 import { ThreeSceneFrame } from "./scene-frame";
 
 const stages = [
-  { label: "shape-spec", color: "#0d9488" },
-  { label: "requirements", color: "#3b82f6" },
-  { label: "Gate", color: "#f59e0b" },
-  { label: "tasks", color: "#8b5cf6" },
-  { label: "verify", color: "#10b981" },
+  { label: "shape-spec", color: "#2dd4bf" },
+  { label: "requirements", color: "#60a5fa" },
+  { label: "Gate", color: "#fbbf24" },
+  { label: "tasks", color: "#a78bfa" },
+  { label: "verify", color: "#34d399" },
 ];
 
-function StageBlock({
+const ARC_RADIUS = 3.2;
+
+function StageNode({
   label,
   position,
   color,
@@ -29,44 +33,71 @@ function StageBlock({
 
   useFrame((state) => {
     if (ref.current) {
-      ref.current.position.y = position[1] + Math.sin(state.clock.elapsedTime + index) * 0.06;
+      ref.current.rotation.y = state.clock.elapsedTime * 0.4 + index;
+      ref.current.position.y = Math.sin(state.clock.elapsedTime * 1.2 + index) * 0.04;
     }
   });
 
   return (
     <group position={position}>
       <mesh ref={ref}>
-        <boxGeometry args={[0.85, 0.5, 0.5]} />
-        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.25} />
+        <sphereGeometry args={[0.22, 24, 24]} />
+        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.45} roughness={0.25} metalness={0.5} />
       </mesh>
-      <Text position={[0, -0.45, 0]} fontSize={0.15} color="#1c1917" anchorX="center">
-        {label}
-      </Text>
+      <Billboard follow lockX lockZ position={[0, -0.38, 0]}>
+        <Text fontSize={0.12} color="#e2e8f0" anchorX="center" outlineWidth={0.012} outlineColor="#0f172a">
+          {label}
+        </Text>
+      </Billboard>
     </group>
   );
 }
 
 function PipelineScene() {
-  const positions = stages.map((_, i): [number, number, number] => [i * 1.35 - 2.7, 0, 0]);
+  const positions = useMemo(() => {
+    const start = -Math.PI * 0.55;
+    const end = Math.PI * 0.55;
+    return stages.map((_, i): [number, number, number] => {
+      const t = i / (stages.length - 1);
+      const angle = start + (end - start) * t;
+      return [Math.cos(angle) * ARC_RADIUS, Math.sin(angle) * 0.35, Math.sin(angle) * ARC_RADIUS * 0.35];
+    });
+  }, []);
+
+  const arcPoints = useMemo(() => {
+    const curve = new THREE.EllipseCurve(0, 0, ARC_RADIUS, ARC_RADIUS * 0.35, -Math.PI * 0.55, Math.PI * 0.55, false, 0);
+    return curve.getPoints(48).map((p) => [p.x, p.y, 0] as [number, number, number]);
+  }, []);
 
   return (
-    <>
-      <ambientLight intensity={0.65} />
-      <directionalLight position={[3, 5, 6]} intensity={1} />
-      <Line points={positions} color="#94a3b8" lineWidth={2} />
-      {stages.map((stage, i) => (
-        <StageBlock key={stage.label} label={stage.label} position={positions[i]} color={stage.color} index={i} />
+    <group rotation={[0.25, 0.35, 0]}>
+      <GlowingCore size={0.32} color="#5eead4" emissive="#14b8a6" spin={0.25} />
+      <Line points={arcPoints} color="#64748b" lineWidth={1.5} transparent opacity={0.5} />
+      {positions.map((pos, i) => (
+        <group key={stages[i].label}>
+          {i > 0 && (
+            <Line
+              points={[positions[i - 1], pos]}
+              color={stages[i].color}
+              lineWidth={1.2}
+              transparent
+              opacity={0.4}
+            />
+          )}
+          <StageNode label={stages[i].label} position={pos} color={stages[i].color} index={i} />
+        </group>
       ))}
-      <OrbitControls enablePan={false} minDistance={4} maxDistance={10} />
-    </>
+    </group>
   );
 }
 
 export function WorkflowPipelineScene() {
   return (
-    <ThreeSceneFrame label="SDD workflow pipeline in 3D" height="h-[280px]">
-      <Canvas camera={{ position: [0, 1.2, 5], fov: 45 }}>
+    <ThreeSceneFrame label="SDD workflow along the spec orbit" height="h-[min(36vh,300px)]" variant="space">
+      <Canvas camera={{ position: [0, 1.5, 7], fov: 45 }} gl={{ antialias: true }}>
+        <SpaceBackdrop starCount={1600} />
         <PipelineScene />
+        <OrbitControls enablePan={false} minDistance={5} maxDistance={11} enableDamping dampingFactor={0.05} />
       </Canvas>
     </ThreeSceneFrame>
   );

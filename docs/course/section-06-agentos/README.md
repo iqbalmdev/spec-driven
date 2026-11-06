@@ -6,7 +6,25 @@ See [living-guardrails.md](./living-guardrails.md). App: `/course/section-06/liv
 
 ---
 
-## Lesson 2+ — AgentOS: Persistent Project Memory
+## Lesson 2 — Verification Gates
+
+See [verification-gates.md](./verification-gates.md). App: `/course/section-06/verification-gates`.
+
+---
+
+## Lesson 3 — Property-Based Testing
+
+See [property-based-testing.md](./property-based-testing.md). App: `/course/section-06/property-based-testing`.
+
+---
+
+## Lesson 4 — Expert AI Crew
+
+See [expert-crew.md](./expert-crew.md). App: `/course/section-06/expert-crew`.
+
+---
+
+## Lesson 5+ — AgentOS: Persistent Project Memory
 
 > **Problem:** AI assistants lose project context between sessions — productivity drops and decisions repeat.
 

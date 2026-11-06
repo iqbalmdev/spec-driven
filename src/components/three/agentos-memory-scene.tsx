@@ -3,94 +3,90 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, OrbitControls, Text } from "@react-three/drei";
+import { Billboard, Float, OrbitControls, Text } from "@react-three/drei";
 import type { Group, Mesh } from "three";
 import { highRigorArtifactFiles } from "@/content/section-05";
+import { GlowingCore, OrbitRingPath, OrbitSlot, SpaceBackdrop } from "./orbit-visuals";
 import { ThreeSceneFrame } from "./scene-frame";
 
-const colors = ["#0d9488", "#3b82f6", "#8b5cf6"];
+const colors = ["#2dd4bf", "#60a5fa", "#a78bfa"];
+const RADIUS = 2.35;
+const SPEED = 0.11;
 
-function MemoryFile({
+function MemorySatellite({
   label,
-  position,
   color,
   active,
   onClick,
 }: {
   label: string;
-  position: [number, number, number];
   color: string;
   active: boolean;
   onClick: () => void;
 }) {
-  const meshRef = useRef<Mesh>(null);
+  const ref = useRef<Mesh>(null);
 
   useFrame((state) => {
-    if (meshRef.current && active) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.8;
+    if (ref.current) {
+      ref.current.rotation.y = state.clock.elapsedTime * (active ? 1.1 : 0.35);
+      ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.08;
     }
   });
 
   return (
-    <Float speed={1.2} floatIntensity={0.3}>
-      <group position={position}>
-        <mesh ref={meshRef} onClick={onClick}>
-          <boxGeometry args={[0.9, 0.55, 0.12]} />
-          <meshStandardMaterial color={color} emissive={color} emissiveIntensity={active ? 0.5 : 0.15} />
-        </mesh>
-        <Text position={[0, -0.55, 0]} fontSize={0.18} color="#1c1917" anchorX="center" maxWidth={2}>
+    <group onClick={onClick}>
+      <mesh ref={ref}>
+        <boxGeometry args={[0.75, 0.48, 0.1]} />
+        <meshStandardMaterial
+          color={color}
+          emissive={color}
+          emissiveIntensity={active ? 0.7 : 0.25}
+          roughness={0.3}
+          metalness={0.5}
+        />
+      </mesh>
+      <mesh position={[0, 0, 0.08]}>
+        <boxGeometry args={[0.55, 0.32, 0.02]} />
+        <meshStandardMaterial color="#f8fafc" emissive="#e2e8f0" emissiveIntensity={active ? 0.15 : 0.05} />
+      </mesh>
+      <Billboard follow lockX lockZ position={[0, -0.62, 0]}>
+        <Text fontSize={0.14} color="#e2e8f0" anchorX="center" outlineWidth={0.015} outlineColor="#0f172a">
           {label}
         </Text>
-      </group>
-    </Float>
-  );
-}
-
-function Core() {
-  const ref = useRef<Mesh>(null);
-  useFrame((state) => {
-    if (ref.current) ref.current.rotation.y = state.clock.elapsedTime * 0.25;
-  });
-  return (
-    <mesh ref={ref}>
-      <icosahedronGeometry args={[0.45, 0]} />
-      <meshStandardMaterial color="#14b8a6" wireframe emissive="#0d9488" emissiveIntensity={0.4} />
-    </mesh>
+      </Billboard>
+    </group>
   );
 }
 
 function AgentOsScene({ activeIndex, setActiveIndex }: { activeIndex: number; setActiveIndex: (i: number) => void }) {
-  const ringRef = useRef<Group>(null);
+  const orbitRef = useRef<Group>(null);
 
   useFrame((state) => {
-    if (ringRef.current) ringRef.current.rotation.y = state.clock.elapsedTime * 0.12;
+    if (orbitRef.current) orbitRef.current.rotation.y = state.clock.elapsedTime * SPEED;
   });
 
-  const positions: [number, number, number][] = [
-    [0, 1.4, 0],
-    [-1.35, -0.85, 0],
-    [1.35, -0.85, 0],
-  ];
-
   return (
-    <>
-      <ambientLight intensity={0.65} />
-      <directionalLight position={[4, 6, 5]} intensity={1} />
-      <Core />
-      <group ref={ringRef}>
-        {highRigorArtifactFiles.map((file, i) => (
-          <MemoryFile
-            key={file.file}
-            label={file.file}
-            position={positions[i]}
-            color={colors[i]}
-            active={activeIndex === i}
-            onClick={() => setActiveIndex(i)}
-          />
-        ))}
+    <group rotation={[0.38, 0.15, 0]}>
+      <GlowingCore size={0.42} color="#5eead4" emissive="#0d9488" />
+      <OrbitRingPath radius={RADIUS} color="#64748b" opacity={0.5} />
+      <group ref={orbitRef}>
+        {highRigorArtifactFiles.map((file, i) => {
+          const phase = (i / highRigorArtifactFiles.length) * Math.PI * 2;
+          return (
+            <OrbitSlot key={file.file} radius={RADIUS} phase={phase}>
+              <Float speed={1.1} floatIntensity={0.1}>
+                <MemorySatellite
+                  label={file.file}
+                  color={colors[i]}
+                  active={activeIndex === i}
+                  onClick={() => setActiveIndex(i)}
+                />
+              </Float>
+            </OrbitSlot>
+          );
+        })}
       </group>
-      <OrbitControls enablePan={false} minDistance={4} maxDistance={9} />
-    </>
+    </group>
   );
 }
 
@@ -100,9 +96,11 @@ export function AgentOsMemoryScene() {
 
   return (
     <div className="space-y-3">
-      <ThreeSceneFrame label="AgentOS memory files in 3D" height="h-[min(45vh,340px)]">
-        <Canvas camera={{ position: [0, 0.5, 5.5], fov: 48 }}>
+      <ThreeSceneFrame label="AgentOS memory files orbiting project core" height="h-[min(45vh,360px)]" variant="space">
+        <Canvas camera={{ position: [0, 1.8, 6.2], fov: 46 }} gl={{ antialias: true }}>
+          <SpaceBackdrop starCount={2200} />
           <AgentOsScene activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
+          <OrbitControls enablePan={false} minDistance={4.5} maxDistance={10} enableDamping dampingFactor={0.06} />
         </Canvas>
       </ThreeSceneFrame>
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border bg-surface px-4 py-3">

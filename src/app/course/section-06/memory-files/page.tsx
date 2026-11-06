@@ -8,7 +8,7 @@ export default function MemoryFilesPage() {
   return (
     <div className="space-y-12">
       <PageHeader
-        eyebrow="Section 6 · Lesson 3"
+        eyebrow="Section 6 · Lesson 6"
         title="Plan · Roadmap · Techstack"
         description="Three files form AgentOS persistent memory — focus, priority, and shared stack knowledge."
       />

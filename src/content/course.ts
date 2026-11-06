@@ -364,7 +364,17 @@ export const courseSections = [
     subtitle: "Executable Guardrails + Persistent Memory",
     status: "complete" as const,
     description:
-      "Lesson 1: test-driven specs, Given/When/Then, test-first gate, and traceable done. AgentOS memory, shape-spec, tasks, implement or orchestrate.",
+      "Lessons 1–4: guardrails, verification gates, PBT, expert multi-agent crew. AgentOS memory, shape-spec, tasks, implement or orchestrate.",
+  },
+  {
+    id: "section-07",
+    number: 7,
+    slug: "section-07",
+    title: "Advanced SDD Use Cases",
+    subtitle: "Evidence-driven debugging & beyond",
+    status: "complete" as const,
+    description:
+      "Spec-first debugging — MCP detective, Playwright reenactment, DevTools forensics, six-step runbook, LCP and jank case studies, spec feedback loop.",
   },
 ] as const;
 
