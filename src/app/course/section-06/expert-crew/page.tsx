@@ -10,6 +10,7 @@ import {
   specialistTaskFields,
 } from "@/content/section-06";
 import { SectionPager } from "@/components/course-nav";
+import { LessonPractice } from "@/components/practice/lesson-practice";
 import { PageHeader, Badge, Card, QuoteBlock } from "@/components/ui/layout";
 
 export default function ExpertCrewPage() {
@@ -144,6 +145,8 @@ export default function ExpertCrewPage() {
           Implement vs orchestrate (Lesson 9) →
         </Link>
       </section>
+
+      <LessonPractice lessonId="section-06/expert-crew" />
 
       <SectionPager slug="section-06" />
     </div>

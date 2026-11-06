@@ -7,6 +7,7 @@ import {
 import { earsPatterns } from "@/content/section-04";
 import { KiroSpecTriadGuide } from "@/components/kiro-spec-triad-guide";
 import { SectionPager } from "@/components/course-nav";
+import { LessonPractice } from "@/components/practice/lesson-practice";
 import { PageHeader, Badge, Card } from "@/components/ui/layout";
 import { ArrowRight } from "lucide-react";
 
@@ -114,6 +115,8 @@ export default function KiroPage() {
           Tier gates in Cursor — durable artifacts in git, not chat-only context.
         </p>
       </Card>
+
+      <LessonPractice lessonId="section-05/kiro" />
 
       <SectionPager slug="section-05" />
     </div>

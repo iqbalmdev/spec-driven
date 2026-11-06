@@ -32,6 +32,14 @@ const McpBridgeSceneInner = dynamic(() => import("./mcp-bridge-scene").then((m) 
   loading: () => <ThreeLoading label="MCP bridge" compact />,
 });
 
+const CompilerForgeSceneInner = dynamic(
+  () => import("./compiler-forge-scene").then((m) => m.CompilerForgeScene),
+  {
+    ssr: false,
+    loading: () => <ThreeLoading label="Product compiler" />,
+  }
+);
+
 function ThreeLoading({ label, compact }: { label: string; compact?: boolean }) {
   return (
     <div
@@ -75,6 +83,14 @@ export function McpBridgeScene() {
   return (
     <Suspense fallback={<ThreeLoading label="MCP bridge" compact />}>
       <McpBridgeSceneInner />
+    </Suspense>
+  );
+}
+
+export function CompilerForgeScene() {
+  return (
+    <Suspense fallback={<ThreeLoading label="Product compiler" />}>
+      <CompilerForgeSceneInner />
     </Suspense>
   );
 }

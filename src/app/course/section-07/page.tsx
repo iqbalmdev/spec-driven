@@ -14,16 +14,16 @@ export default function SectionSevenPage() {
       <PageHeader
         eyebrow="Section 7"
         title={section07ModuleMeta.title}
-        description="Apply SDD beyond the basics — evidence-driven debugging, runtime diagnostics, and specs that get stronger after every incident."
+        description="Apply SDD beyond the basics — evidence-driven debugging, spec-first modernization, and compiling one spec to many targets."
       />
 
       <QuoteBlock>
-        What if every bug you fixed made the whole system permanently smarter against that category of failure?
+        Compiling is the beginning. Done is conformance.
       </QuoteBlock>
 
       <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
         <span>
-          {section07ModuleMeta.lessonCount} lesson · ~{section07ModuleMeta.estimatedMinutes} min
+          {section07ModuleMeta.lessonCount} lessons · ~{section07ModuleMeta.estimatedMinutes} min
         </span>
       </div>
 
@@ -31,10 +31,10 @@ export default function SectionSevenPage() {
         <section className="space-y-6">
           <h2 className="text-xl font-semibold">Lessons</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {section07Topics.map((topic, i) => (
+            {section07Topics.map((topic) => (
               <Link key={topic.id} href={topic.href} className="group">
                 <Card hover className="h-full space-y-2 transition-transform hover:-translate-y-0.5">
-                  <span className="text-xs font-mono text-muted">Lesson {i + 1}</span>
+                  <span className="text-xs font-mono text-muted">Lesson {topic.lesson}</span>
                   <p className="text-xs font-medium uppercase tracking-widest text-accent">{topic.subtitle}</p>
                   <h3 className="font-semibold group-hover:text-accent transition-colors">{topic.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{topic.description}</p>

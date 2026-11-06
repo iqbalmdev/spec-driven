@@ -9,6 +9,7 @@ interface ThreeSceneFrameProps {
   label?: string;
   /** space = dark canvas for orbit / starfield scenes */
   variant?: "default" | "space";
+  hint?: string;
 }
 
 export function ThreeSceneFrame({
@@ -17,6 +18,7 @@ export function ThreeSceneFrame({
   height = "h-[min(50vh,360px)]",
   label = "Interactive 3D view",
   variant = "default",
+  hint,
 }: ThreeSceneFrameProps) {
   return (
     <div className={cn("space-y-3", className)}>
@@ -34,7 +36,10 @@ export function ThreeSceneFrame({
         {children}
       </div>
       <p className="text-xs text-center text-muted">
-        {variant === "space" ? "Drag to orbit the system · Scroll to zoom · Click a planet" : "Drag to orbit · Scroll to zoom"}
+        {hint ??
+          (variant === "space"
+            ? "Drag to orbit the system · Scroll to zoom · Click a planet"
+            : "Drag to orbit · Scroll to zoom")}
       </p>
     </div>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { KiroSpecTriadGuide } from "@/components/kiro-spec-triad-guide";
 import { SectionPager } from "@/components/course-nav";
+import { LessonPractice } from "@/components/practice/lesson-practice";
 import { PageHeader, Card } from "@/components/ui/layout";
 import { ArrowRight } from "lucide-react";
 
@@ -30,6 +31,8 @@ export default function SpecFilesPage() {
           Copy templates <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
+
+      <LessonPractice lessonId="section-05/spec-files" />
 
       <SectionPager slug="section-05" />
     </div>

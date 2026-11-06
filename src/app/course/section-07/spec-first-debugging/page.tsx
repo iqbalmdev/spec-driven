@@ -11,6 +11,7 @@ import {
 import { RuntimeGateflow } from "@/components/runtime-gateflow";
 import { McpBridgeScene } from "@/components/three/lazy-three-scenes";
 import { SectionPager } from "@/components/course-nav";
+import { LessonPractice } from "@/components/practice/lesson-practice";
 import { PageHeader, Badge, Card, QuoteBlock } from "@/components/ui/layout";
 
 export default function SpecFirstDebuggingPage() {
@@ -142,6 +143,8 @@ export default function SpecFirstDebuggingPage() {
           Runtime gate (Section 6 · Lesson 2) →
         </Link>
       </div>
+
+      <LessonPractice lessonId="section-07/spec-first-debugging" />
 
       <SectionPager slug="section-07" />
     </div>

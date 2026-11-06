@@ -8,6 +8,7 @@ import {
   section06Lesson3Sections,
 } from "@/content/section-06";
 import { SectionPager } from "@/components/course-nav";
+import { LessonPractice } from "@/components/practice/lesson-practice";
 import { PageHeader, Badge, Card, QuoteBlock } from "@/components/ui/layout";
 
 export default function PropertyBasedTestingPage() {
@@ -119,6 +120,8 @@ export default function PropertyBasedTestingPage() {
           </Link>
         </div>
       </section>
+
+      <LessonPractice lessonId="section-06/property-based-testing" />
 
       <SectionPager slug="section-06" />
     </div>

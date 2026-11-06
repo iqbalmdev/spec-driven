@@ -8,6 +8,7 @@ import {
 import { RuntimeGateflow } from "@/components/runtime-gateflow";
 import { McpBridgeScene } from "@/components/three/lazy-three-scenes";
 import { SectionPager } from "@/components/course-nav";
+import { LessonPractice } from "@/components/practice/lesson-practice";
 import { PageHeader, Card } from "@/components/ui/layout";
 
 export default function McpPage() {
@@ -103,6 +104,8 @@ export default function McpPage() {
           <code className="font-mono text-xs">requirements.md</code>.
         </p>
       </Card>
+
+      <LessonPractice lessonId="section-05/mcp" />
 
       <SectionPager slug="section-05" />
     </div>

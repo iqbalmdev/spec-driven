@@ -371,10 +371,10 @@ export const courseSections = [
     number: 7,
     slug: "section-07",
     title: "Advanced SDD Use Cases",
-    subtitle: "Evidence-driven debugging & beyond",
+    subtitle: "Debugging, Modernization & Multi-Target",
     status: "complete" as const,
     description:
-      "Spec-first debugging — MCP detective, Playwright reenactment, DevTools forensics, six-step runbook, LCP and jank case studies, spec feedback loop.",
+      "Spec-first debugging, legacy modernization, and compiling one spec to many targets — Go, Rust, UI skins — with frozen contracts and engineered determinism.",
   },
 ] as const;
 

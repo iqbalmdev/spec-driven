@@ -18,6 +18,7 @@ const navItems = [
   { href: "/requirements", label: "Requirements" },
   { href: "/workflow", label: "Workflow" },
   { href: "/templates", label: "Templates" },
+  { href: "/practice", label: "Practice" },
 ];
 
 export function HeaderNav() {

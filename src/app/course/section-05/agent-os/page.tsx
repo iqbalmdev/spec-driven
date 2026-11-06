@@ -10,6 +10,7 @@ import { AgentOsLifecycle } from "@/components/agent-os-lifecycle";
 import { AgentOsMemoryScene } from "@/components/three/lazy-three-scenes";
 import { ImplementationPathPicker } from "@/components/agentos-path-picker";
 import { SectionPager } from "@/components/course-nav";
+import { LessonPractice } from "@/components/practice/lesson-practice";
 import { PageHeader, Badge, Card, QuoteBlock } from "@/components/ui/layout";
 import { CheckCircle2 } from "lucide-react";
 
@@ -152,6 +153,8 @@ export default function AgentOsPage() {
         </div>
         <AgentOsMemoryScene />
       </section>
+
+      <LessonPractice lessonId="section-05/agent-os" />
 
       <SectionPager slug="section-05" />
     </div>

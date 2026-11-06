@@ -8,6 +8,7 @@ import {
   testFirstGateChecklist,
 } from "@/content/section-06";
 import { SectionPager } from "@/components/course-nav";
+import { LessonPractice } from "@/components/practice/lesson-practice";
 import { PageHeader, Badge, Card, QuoteBlock } from "@/components/ui/layout";
 import { CheckCircle2 } from "lucide-react";
 
@@ -125,6 +126,8 @@ export default function LivingGuardrailsPage() {
           Feature verification (Section 3) →
         </Link>
       </section>
+
+      <LessonPractice lessonId="section-06/living-guardrails" />
 
       <SectionPager slug="section-06" />
     </div>
